@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ 
+   <!--
+        1. CSS: a set of rules of the form: selector { property : value; }  
+            - note: do not omit ';' 
+        2. Three ways of CSS: inline, internal, external
+            inline: <p style="text-align:center;">
+            internal: <style> p { text-align:center; } </style>
+            external (*.css file): p { text-align:center; }
+        3. Comment: /* ... */ 
+        4. Selectors
+            Element: p, h1, img, a, button, etc.
+            id: #unique-name
+            class: .class-name  (an element can belong to multiple classes)
+        
+        5. Unit of Measurement: Absolute Unit, Relative Unit
+            Absolute: px, in, cm
+            Relative: %, em, vw
+        6. Color: rgba(50, 180, 39, 1) /* red, green, blue, alpha */
+        7. Display: inline, block, none
+        8. Box Model: content, padding, border, margin
+            - every HTML element is a box
+        9. Positioning element: static, absolute, fixed, relative, sticky
+        10. Styling Forms: input[type=text] { ... }
+        11. Pseudo class: define a state of an element
+            - Syntax: selector:pseudo-classs { property : value; } 
+    -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>CSS</title>
+
+    <style>
+        p {
+            color: rgba(134, 86, 86, );
+        }
+
+        #uniq {
+            color:blueviolet;
+        }
+
+        .deco {
+            font-size: 1.2em;
+            font-style: italic;
+            color:yellow;
+        }
+
+       
+
+        img {
+            width: 20%;
+            position: absolute;
+            bottom: 0px;
+            right: 0;
+        }
+
+        /* .fix {
+            width: 50px;
+            position: fixed;
+            bottom: 0;
+            right: 0;
+        } */
+
+        .box {
+            border: 1px solid rgb(181, 76, 76);
+            width: 50%;
+            height: 200px;
+            margin: 50px 20px 10px 5px;
+            padding: 10px;
+            position: relative;
+        }
+
+        .sm1 {
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+            background-color: rgba(137, 137, 50,0.8);
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            z-index: 1;
+        }
+
+        .sm2 {
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+            background-color: blue;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            z-index: -1;
+        }
+
+        input[type=number] {
+            background-color: aqua;
+        }
+
+        a:hover {
+            color: red;
+        }
+        a:active {
+            color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#">Link</a>
+        <a href="#">Link</a>
+        <a href="#">Link</a>
+        <a href="#">Link</a>
+    </nav>
+
+    <input type="text">
+    <input type="number" name="" id="">
+
+    <div class="box">
+        <div class="sm1">box1</div>
+        <div class="sm2">box2</div>
+    </div>
+
+    <!-- <img src="./img/thumb_news.png" alt="" class="fix"> -->
+
+    <h1 style="color:blue; text-align: center; font-size: 2.0em;">Heading</h1>
+
+    <p class="deco">Lorem ipsum <span style="color:red;">dolor</span> sit amet consectetur adipisicing elit. Sed enim, dolore suscipit debitis, dolores neque facere impedit recusandae nulla natus ipsam perferendis pariatur velit placeat, illo eveniet nesciunt deserunt adipisci.</p>
+
+   
+
+    <p id="uniq" class="deco">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat sint voluptatibus, repellendus culpa optio quo adipisci numquam odit rem? Id tempora perferendis, ad error unde magni deleniti placeat molestias sapiente.</p>
+
+    <p class="deco">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita veniam quos velit, eum impedit necessitatibus, aspernatur tempore praesentium dolor porro, neque temporibus reiciendis? Doloremque, ad. Ut a illum deserunt inventore!</p>
+
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt, eveniet nam sed fugiat consequatur odit ullam necessitatibus deleniti sequi odio omnis dolores ex earum similique laborum. Culpa in ipsam sunt.</p>
+
+    
+
+    
+  
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" 
+    rel="stylesheet" 
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" 
+    crossorigin="anonymous">
+
+    <title>Registration</title>
+
+    <style>
+        .yellow{
+            background-color: yellow;
+        }
+
+        .pink{
+            background-color: pink;
+        }
+
+        .centralise{
+            transform: translate(5px,8px)
+        }
+
+        .turquoise{
+            background-color: rgb(232,252,252);
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- banner -->
+    <div class="container-fluid text-center bg-primary pt-5 pb-1 text-white"><h1>Registration Page</h1></div>
+    
+    <div class="container-fluid text-center bg-primary pb-5 text-white">Enter the details to register</div>
+
+    <!-- form -->
+    <div class="table">
+        <h2 class="text-center pt-4">About You</h2>
+        <form action="">
+            <div class="row m-2 yellow fw-bold text-danger">
+                <div class="mb-3 col-6">
+                    <label for="First Name" class="form-label">First Name <span class="badge bg-success">must</span></label>
+                    <input type="text" class="form-control" id="First Name" placeholder="First name">
+                    
+                  </div>
+                  <div class="mb-3 col-6">
+                    <label for="Last Name" class="form-label">Last Name <span class="badge bg-success">must</span></label>
+                    <input type="text" class="form-control" id="Last Name" placeholder="Last name">
+                  </div>
+            </div>
+            
+            <div class="row m-2 yellow text-success fw-bold">
+                <div class="mb-3">
+                    <label for="username" class="form-label ">User Name <span class="badge bg-success">must</span></label>
+                    <input type="text" class="form-control" id="username" placeholder="Username">
+                    
+                </div>
+            </div>
+
+            <div class="row m-2 yellow text-success fw-bold">
+                <div class="mb-3">
+                    <label for="Email" class="form-label ">Email <span class="badge bg-success">must</span></label>
+                    <input type="text" class="form-control" id="Email" placeholder="Email">
+                    
+                </div>
+            </div>
+
+            <div class="row m-2 yellow text-success fw-bold">
+                <div class="mb-3">
+                    <label for="description" class="form-label">Short Description</label>
+                    <textarea class="form-control" id="description" rows="3" placeholder="write a short description of yourself..."></textarea>
+                  </div>
+            </div>
+
+            <!-- timeslot -->
+            <h2 class="text-center">Choose Timeslot</h2>
+            <div class="row m-2 pink">
+                <div class="mb-3">
+                    <label for="timeslot" class="form-label">Timeslot</label>
+                    <select class="form-select" id="timeslot" aria-label="Default select example">
+                        <option value="0800 - 1000" selected>0800 - 1000</option>
+                        <option value="1000 - 1200">1000 - 1200</option>
+                        <option value="1200 - 1400">1200 - 1400</option>
+                        <option value="1400 - 1600">1400 - 1600</option>
+                        <option value="1600 - 1800">1600 - 1800</option>
+                      </select>  
+                </div>
+            </div>
+
+
+            <!-- colors -->
+            <h2 class="text-center">Choose Colors</h2>
+            <div class="row m-2 turquoise fw-bold border border-3 border-danger ">
+                <div class="m-2">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="Red">
+                        <label class="form-check-label text-danger" for="Red">
+                          Red
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="Green">
+                        <label class="form-check-label text-success" for="Green">
+                          Green
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="Yellow">
+                        <label class="form-check-label text-warning" for="Yellow">
+                          Yellow
+                        </label>
+                      </div>
+                </div>
+                
+            </div>
+
+
+            <input type="submit" class="btn btn-primary mt-1 ms-4">
+
+        </form>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- Bundled Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" 
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>

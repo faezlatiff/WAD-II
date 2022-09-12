@@ -1,0 +1,148 @@
+<!--
+    
+Name:   
+Email:  
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- DO NOT REMOVE
+         REFERENCE TO LOCAL BOOTSTRAP CSS
+    -->
+    <link rel="stylesheet" href="Bootstrap/bootstrap.min.css">
+
+    <style>
+        .user {
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+
+    <title>Courses</title>
+</head>
+<body>
+    <h4>Create a web page that looks like the one given below</h4>
+    <img src="./page.png" class="w-75" alt="">
+    <hr>
+    <ul class="lead">
+        <li>If the screen width size is larger or equal to 992px (>= .lg), "Name" occupies 50% of its parent container ("Particular")</li>
+        <li>If the screen width size is between 991px and 768px ( .lg &lt; size &lt;= .md), "Name" occupies 100% of its parent container ("Particular"). "Email" and "Year" is displayed in the same row below the "Name".</li>
+
+        <li>If the screen width size is smaller than 768px (&lt; .md), every field in "Particular" is displayed in a separate row.</li>
+    </ul>
+    <hr>
+    <ul class="lead">
+        <li>If the screen width size is larger or equal to 992px (>= .lg), "Courses Taken" occupies 25% of the screen width (col-3) </li>
+        <li>If the screen width size is between 991px and 576px ( .lg &lt; size &lt;= .sm), "Courses Taken" occupies 50% of the screen width (col-6)</li>
+        <li>If the screen width size is smaller than 576px (&lt; .sm),"Courses Taken" occupies the full screen width. And the "Courses Taken" is displayed above the "Particulars"</li>
+        <li>If the screen width size is smaller than 768px (&lt; .md),"Courses Taken" is displayed on the left. "Particulars" is displayed on the right </li>
+    </ul>
+    <hr>
+
+    <!--
+        Explore:
+            Courses Taken: 
+            https://getbootstrap.com/docs/5.2/components/badge/ 
+            https://getbootstrap.com/docs/5.2/components/list-group/
+
+            Name, Email, Year: https://getbootstrap.com/docs/5.2/forms/layout/
+            Select: https://getbootstrap.com/docs/5.2/forms/select/
+    -->
+
+     <!-- student icon -->
+     <div class="m-2 text-end">      
+        <img class="user" src="user.png">
+        <p class="lead">John</p>
+    </div>
+
+
+    <div class="container-fluid">
+
+        <div class="row">
+
+            <!-- courses taken -->
+            <div class="col-lg-3 col-sm-6  p-3 bg-primary order-md-last">
+                <!--https://getbootstrap.com/docs/5.2/components/badge/ -->
+                <h4 class="text-light">Courses Taken <span class="badge bg-secondary float-end">3</span></h4>
+
+                <!--   https://getbootstrap.com/docs/5.2/components/list-group/ -->
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                      <div class="ms-2 me-auto">
+                        <div class="fw-bold">IS111</div>
+                        Intro to Programming
+                      </div>
+                      <span class="badge bg-primary rounded-pill">A-</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                      <div class="ms-2 me-auto">
+                        <div class="fw-bold">IS113</div>
+                        Web App Development I
+                      </div>
+                      <span class="badge bg-primary rounded-pill">A</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                      <div class="ms-2 me-auto">
+                        <div class="fw-bold">IS216</div>
+                        Web App Development II
+                      </div>
+                      <span class="badge bg-primary rounded-pill">A+</span>
+                    </li>
+                </ul>
+            </div>
+            
+            
+            <!-- Particulars -->
+            <div class="col-lg-9 col-sm-6 p-3 bg-secondary text-light">
+                <h4 class="mb-3">Particulars</h4>
+                <form>
+
+                    <div class="row mb-4">
+                        <div class="col-lg-6 mb-2">
+                          <input type="text" class="form-control" placeholder="Name" aria-label="name">
+                        </div>
+                        <div class="col-lg-3 col-md-6 mb-2">
+                          <input type="text" class="form-control" placeholder="Email" aria-label="email">
+                        </div>
+
+                        <div class="col-lg-3 col-md-6">
+                            <input type="text" class="form-control" placeholder="Year" aria-label="year">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <!-- https://getbootstrap.com/docs/5.2/forms/select/ -->
+                            <select class="form-select" id="courses" aria-label="Default select example">
+                                <option selected>Choose a course to enrol</option>
+                                <option value="1">IS217</option>
+                                <option value="2">CS440</option>
+                                <option value="3">CS442</option>
+                            </select>
+                        </div>
+                    </div>
+
+                
+                    <hr class="my-4">
+
+                    <button class="w-100 btn btn-primary btn-lg" type="submit">Enrol</button>
+
+                </form>
+            </div>
+
+        </div>
+    
+
+    </div><!-- end-container-->
+
+
+
+    <script src="Bootstrap/bootstrap.bundle.min.js"></script>
+    
+</body>
+</html>

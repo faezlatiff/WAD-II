@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News</title>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script src="news.js"></script>
+
+    <style>
+        /* Style the body. 
+        set zero margin and font style */
+        body {
+            margin: 0;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        /* stick intro bar at the top even when the user scroll down */
+        #intro {
+            position:sticky; 
+            top:0; 
+        }
+
+        /* Header/footer */
+        .headerfooter {
+            background:rgb(241, 239, 231); 
+            font-size: 1.2em; 
+            text-align:center; 
+            padding-top:10px; 
+            padding-bottom:10px;
+        }
+
+        .title {
+            background:rgb(50, 180, 39); 
+            text-align: center;
+            padding:60px; 
+            color: white;
+        }
+
+        nav {
+            background: black;
+            padding: 10px;
+        }
+
+        /* The <a> tag is an inline element and therefore cannot have a top or bottom margin. But you can solve this by applying display: inline-block; to it. the link tag <a> is inline block tags and it means it must be in one line beside other elements and should has a parent part that the parent part determines how much these inline-block elements should have margin top and button there's two ways to do that: convert theme to block:
+    */
+    /* Style the navigation bar links */
+        nav a {
+            margin: 5px;
+            color: white;
+            text-decoration-line:none; /* to make link underline disappear */
+             /* make a tag block-element while still displaying as inline*/
+            /*display:inline-block; */
+            
+        }
+
+        /* Change color on hover */
+        nav a:hover {/* pseudo-class selector selects state of an element */
+            color: green;
+        }
+        /* Change color on click */
+        nav a:active {/* pseudo-class selector selects state of an element */
+            color: yellow;
+        }
+
+        .author {
+            background: rgb(158, 147, 147);
+            padding: 15px;
+            width: 300px;
+            text-align: center;
+        }
+
+        .author-img {
+            width: 200px;
+            height: auto;
+        }
+
+        /* thumbnail images */
+        .thumbnail {
+            width: 50px;
+            height: auto;
+            display: block;
+            margin-top: 5px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hi-img {
+            border:1px solid black;
+            border-radius: 5%;
+            padding: 5px;
+        }
+
+        h2 {
+            text-transform:uppercase;
+        }
+
+        .fake-img {
+            background: yellow;
+            width: 50%;
+            height: 300px;
+            position: relative;
+        }
+
+        /* method for perfectly centering a content */
+        .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <header id="intro" class="headerfooter">Introductory Info</header>
+
+    <div class="title">
+        <h2>Today's News</h2>
+
+       <p>With a <span style="text-decoration: underline;">nice</span> layout</p>
+    </div>
+
+    <nav>
+        <a href="#">Link</a>
+        <a href="#">Link</a>
+        <a href="#">Link</a>
+        <a href="#">Link</a>
+    </nav>
+
+    <!-- content -->
+    <table>
+        <tr>
+            <!-- author part -->
+            <td class="author"> 
+                <h2>Author</h2>
+
+                <img class="author-img" src="img/journalist.png">
+
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+
+                <h3>More News</h3>
+                <p>Lorem ipsum dolor sit amet</p>
+
+                <img class="thumbnail" src="img/thumb_news.png">
+                <img class="thumbnail" src="img/thumb_news.png">
+                <img class="thumbnail" src="img/thumb_news.png">
+
+
+            </td>
+            <!-- main content -->
+            <td class="main">
+                <h2>Title Heading</h2>
+
+                <p>Title description, Aug 19, 2020</p>
+
+                <div class="hi-img">
+                    <a href="https://www.bbc.com/news/world-us-canada-53761744">
+                
+                        <img style="width:800px;" src="img/news.png"></a>
+                </div>
+
+                <p>Some text... Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit quasi repellat repellendus minus nisi, maxime similique ad quia temporibus eveniet exercitationem, laboriosam tempore reprehenderit consectetur aperiam, et quas aliquid impedit!</p>
+
+                <h2>title heading</h2>
+                <p>Title description, Aug 24, 2022</p>
+
+                <div class="fake-img"><img class="thumbnail center" src="img/thumb_news.png" alt=""></div>
+
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+
+            </td>
+        </tr>
+    </table>
+
+    <footer class="headerfooter" style="font-size: 0.8em;"> &copy; IS216</footer>  
+</body>
+</html>

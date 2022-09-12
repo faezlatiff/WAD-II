@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+            /*.sticky{
+            position:fixed; 
+            top: 0;
+            left: 0; 
+            background-color: rgb(248,236,228);
+            width:100%;
+            text-align: center;
+            padding: 10px*/
+            /*} */
+
+        .headerbg{
+            background-color: rgb(50, 189, 50);
+            width:auto;
+            color:white;
+        }
+        .header{
+            width:100%;
+            text-align: center;
+            padding-top: 50px;
+            font-size: 25px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            
+        }
+
+        #header_text{
+            text-align: center;
+            padding-top: 20px;
+            padding-bottom: 50px;
+            font-family:Arial, Helvetica, sans-serif;    
+        }
+
+        #nice{
+            text-decoration-line:underline;
+        }
+
+        .navbar{
+            background-color: black;
+            padding: 10px;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        .navbar a{
+            color: white;
+            text-decoration-line:none;
+        }
+
+        .navbar a:hover{
+            color:green;
+        }
+
+        .author{
+            width: 300px;
+            height: 100%;
+            background-color: rgb(160,148,148);
+            text-align: center;
+            font-family: arial;
+            padding-bottom: 100px;
+            display: block;
+            padding-top: 100px;
+        }
+
+        .profile{
+            width: 50%;
+            padding: 10px;
+        }
+        
+        .text{
+            padding: 10px;
+        }
+
+        #morenews {
+            padding: 10px;
+            font-weight: bold;
+        }
+
+        .thumbnail{
+            width: 50px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            height: auto;
+            margin-top: 5px;;
+            padding-bottom: 10px;
+        }
+        
+        .newsblock{
+            display:block;
+            font-family: arial;
+            width:100%;
+
+        }
+
+        .article{
+            width:100%;
+            border: 1px black solid;
+            border-radius: 5%;
+        }
+
+        .description{
+            padding-bottom:10px;
+        }
+
+        .box{
+            padding:0%;
+            background-color: yellow;
+            width:50%;
+            height:200px;
+        }
+
+        .news-thumbnail{
+            width:15%;
+        }
+
+        .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="sticky">Weather in Singapore: insert weather API here!</div>
+    <div class="headerbg">
+        <div class="header">TODAY'S NEWS</div>
+        <div id="header_text">With a <span id="nice">nice</span> layout </div>
+    </div>
+    <div class="navbar">
+        <a href="#">Link</a>
+        <a href="#">Link</a>
+        <a href="#">Link</a>
+        <a href="#">Link</a>
+    </div>
+
+    <!-- author block -->
+    <table>
+        <tr>
+            <td>
+                <div class="author">
+                    <div>
+                        <img src="./img/journalist.png" alt="" class="profile">
+                    </div>
+                    <div class="text">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit
+                    </div>
+                    <div id="morenews">
+                        More News
+                    </div>
+                    <div class="text">
+                        Lorem ipsum dolor sit amet
+                    </div>
+                    <div>
+                        <img src="./img/thumb_news.png" alt="" class="thumbnail">
+                        <img src="./img/thumb_news.png" alt="" class="thumbnail">
+                        <img src="./img/thumb_news.png" alt="" class="thumbnail">
+                    </div>
+                </div>
+            </td>
+            <td class="newsblock">
+                <div>
+                    <h1>TITLE HEADING</h1>
+                </div>
+                <div class="description">
+                    Title description, Aug 19, 2020
+                </div>
+                <div>
+                    <img src="./img/news.png" alt="" class="article">
+                </div>
+                <div>
+                    Some text... Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit quasi repellat repellendus minus nisi, maxime similique ad quia temporibus eveniet exercitationem, laboriosam tempore reprehenderit consectetur aperiam, et quas aliquid impedit!
+                </div>
+
+            </td>
+            <td class="newsblock">
+                <div>
+                    <h1>TITLE HEADING</h1>
+                </div>
+                <div class="description">
+                    Title description, Aug 24, 2020
+                </div>
+                <div class="box ">
+                    <img src="./img/thumb_news.png" alt="" class="news-thumbnail">
+                </div>
+                <div>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                </div>
+
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

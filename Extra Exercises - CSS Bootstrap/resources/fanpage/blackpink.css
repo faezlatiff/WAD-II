@@ -1,0 +1,25 @@
+
+.pagewide{
+    background-color: rgba(242,237,240,255);
+}
+
+.banner{
+    border: 5px solid rgba(238,194,204,255); 
+    color: rgba(238,194,204,255);
+}
+
+.flip {
+display: inline-block;
+transform: matrix(-1, 0, 0, 1, 0, 0);
+}
+
+a{
+    padding:10px;
+    color: black;
+    text-decoration-line: none;
+}
+
+.list-image{
+    list-style-image: url(./img/pink-heart.png)
+}
+
