@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <style>
+        /* Set the size of the div element that contains the map */
+        #map {
+            height: 400px;
+            /* The height is 400 pixels */
+            width: 100%;
+            /* The width is the width of the web page */
+        }
+
+        /* Optional: Makes the sample page fill the window. */
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h3>My Google Map</h3>
+    <!--The div element for the map -->
+    <div id="map"></div>
+
+    <div class="jumbotron">
+        <p class="lead text-center">Get Geo Location</p>
+        <form>
+            <div class="form-group">
+                <label for="addr">Enter An Address</label>
+                <input type="text" class="form-control" name="addr" id="addr"
+                    placeholder="E.g. Singapore Management University">
+                <br><button type="button" class="btn btn-primary">Get Full Address!</button>
+                <button type="button" class="btn btn-primary">Get Postal Code!</button>
+            </div>
+            <p id="display" class="lead text-center"></p>
+        </form>
+    </div>
+
+    <script>
+        // todo: add your api key here
+        var inputEle = document.getElementById("addr")
+        var lat = "1.2973784"
+        var lng = "103.8495219"
+        var key = "ADD YOUR API KEY HERE"
+        var url = "https://maps.googleapis.com/maps/api/geocode/json?"
+
+
+        /* todo: 
+            Load the map using Google Maps API
+            Initialize the map to point to SMU at the start
+         */
+        function initMap() {
+
+            // ADD CODE HERE
+        }
+
+        /* todo: 
+            User is supposed to enter an address. 
+            Upon clicking the "Get Full Address" or "Get Postal Code" button, 
+            read the user input and make an Async request to get the full address or the postal code; and display the result
+            Re-center the map according to the new address given by the user.
+        
+            Hint: use function encodeURI to generate an encoded address string from the user input. 
+            You may implement additional helper functions as needed
+        */
+        function getLoc(action) {
+
+            // ADD CODE HERE
+           
+        }
+
+
+    </script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    
+</body>
+
+</html>
