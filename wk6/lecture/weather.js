@@ -88,7 +88,7 @@
 // Weather API doc: https://openweathermap.org/current
 // endpoint: https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
 
-var key = "93fcfe8c26c7954baf353fab74e2a11f";
+var key = "";
 var url = "https://api.openweathermap.org/data/2.5/weather"
 var btnEle = document.getElementById("weatherBtn");
 var inputEle = document.getElementById("city");
