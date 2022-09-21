@@ -33,10 +33,18 @@
             // HINT: explore https://www.w3schools.com/jsref/dom_obj_table.asp for creating a table
             
             function getData() {
-                
                 // Add Code Here
+                axios.post(url, {
+        	    name1 : value1,
+            	name2 : value2
+            })
+            .then(response => {
+                    // process response.data object
+            })
+            .catch(error => {
+                // process error object
+            }); 
 
-            }
 
             // You may also add helper function(s) as you deem fit
             

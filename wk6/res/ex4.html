@@ -39,7 +39,7 @@
                 <label for="addr">Enter An Address</label>
                 <input type="text" class="form-control" name="addr" id="addr"
                     placeholder="E.g. Singapore Management University">
-                <br><button type="button" class="btn btn-primary">Get Full Address!</button>
+                <br><button type="button" class="btn btn-primary" onclick="getLoc('fulladdress')">Get Full Address!</button>
                 <button type="button" class="btn btn-primary">Get Postal Code!</button>
             </div>
             <p id="display" class="lead text-center"></p>
@@ -51,7 +51,7 @@
         var inputEle = document.getElementById("addr")
         var lat = "1.2973784"
         var lng = "103.8495219"
-        var key = "ADD YOUR API KEY HERE"
+        var key = "AIzaSyAG8Efwallrtxc44Al9S8Io1SWGlpPhfYI"
         var url = "https://maps.googleapis.com/maps/api/geocode/json?"
 
 
@@ -60,9 +60,28 @@
             Initialize the map to point to SMU at the start
          */
         function initMap() {
+            // Initialize and add the map
+            // The location of Uluru
+            // const uluru = { lat: -25.344, lng: 131.031 };
 
-            // ADD CODE HERE
-        }
+            var new_lat = parseFloat(lat);
+            var new_lng = parseFloat(lng)
+
+            const smu = {lat: new_lat, lng: new_lng}
+            // The map, centered at Uluru
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 20,
+                center: smu,
+            });
+            // The marker, positioned at Uluru
+            const marker = new google.maps.Marker({
+                position: smu,
+                map: map,
+            });
+            }
+
+            window.initMap = initMap;
+
 
         /* todo: 
             User is supposed to enter an address. 
@@ -76,12 +95,52 @@
         function getLoc(action) {
 
             // ADD CODE HERE
-           
+            let addr = document.getElementById('addr').value
+            console.log(addr)
+            var url = ''
+            axios.get(
+                url, {
+                    params: {
+                        address: addr,
+                        key: key //line 54
+                    }
+                }
+            )
+            .then(
+                resp => {
+                    console.log(resp.data.results[0].formatted_address)
+
+                    let formatted_addr = resp.data.results[0].formatted_address
+
+                    lat = resp.data.results[0].geometry.location.lat
+                    lng = resp.data.results[0].geometry.location.lng
+                    console.log(lat)
+
+                    document.getElementById('display').innerHTML = `
+
+                    <div class='bg-primary'>${formatted_addr}
+                        <br>
+                        Latitude: ${lat}
+                        <br>
+                        Longitude: ${lng}
+                    </div>
+
+                    `
+                    initMap();
+                }
+            )
+            .catch(
+
+            )
+            
         }
 
 
     </script>
-
+<script
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAG8Efwallrtxc44Al9S8Io1SWGlpPhfYI&callback=initMap&v=weekly"
+defer
+></script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
     
