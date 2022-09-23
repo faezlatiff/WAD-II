@@ -1,0 +1,14 @@
+Question 3 options:
+The code is to concatenate the fruits and display it on the last line in the browser. Fill in the blanks.
+
+<p class="fruits">apple</p>
+<span class="fruits">orange</span>
+<div class="fruits">pear</div>
+<div id="fruits">kiwi</div>
+<script>
+  var fruits = document.getElementsByClassName("fruits");
+  for (var fruit of fruits) {
+    console.log(fruit)
+    document.getElementsByTagName("div")[1].innerHTML += fruit.name;
+  }
+</script>

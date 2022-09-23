@@ -17,6 +17,17 @@
         apply(incr, [1,2,3]); //result: [2,4,6]
         apply(Number, ["string", 5, this, NaN]) //result: [NaN, 5, NaN, NaN]
         */
+        function fn(x){
+            console.log(x+1);
+        }
+        
+        function apply(f,arr){
+            var x;
+            var len = y.length;
+            for(var i = 0; i<=len; i++ ){
+                fn(arr[i])
+            }
+        }
 
 	</script>
 </body>
