@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+    <!-- VueJS -->
+    <script src="https://unpkg.com/vue@next"></script>
+ 
+    <!-- Axios -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <title>Revision</title>
+    <!--
+        Week 1: HTML Tags & Attributes
+            
+            Header              <h1>...</h1>, <h2>...</h2>
+            Paragraph           <p>...</p>
+            Image               <img src="..">
+            Anchor link         <a href="..">Link</a>
+
+            Table               <table><tr><td>...</td></tr></table>
+
+            Input field         Name: <input type="text" name="name">
+                                Age: <input type="number" name="age" max='80' min='10'> 
+                                Remember me? <input type="checkbox" name="" id="" checked> 
+                                <input type="radio">
+
+            
+            Drop down list      <select name="school" id="">
+                                    <option value="scis">SCIS</option>
+                                    <option value="soa" selected>SOA</option>
+                                    <option value="lkcsb">LKCSB</option>
+                                </select>
+
+            Button              <button type="submit">Submit</button>
+
+
+            (Un)Ordered List    <ol><li>...</li></ol>
+            division            <div id='div1'>...</div>
+            span                <span id='inline'>...</span>
+
+
+        Week 2: CSS
+            Syntax 
+                selector { property : value; }  
+                - note: do not omit ';' 
+
+            Three ways of CSS: inline, internal, external
+                inline: <p style="text-align:center;">
+                internal: <style> p { text-align:center; } </style>
+                external (*.css file): p { text-align:center; }
+            
+            Selectors
+                Element: p, h1, img, a, button, etc.
+                id: #unique-name
+                class: .class-name  (an element can belong to multiple classes)
+         
+            Box Model: content, padding, border, margin
+                - every HTML element is a box
+
+            Positioning element: absolute, relative, fixed, sticky
+          
+            Centering an element: 
+                    - text-align: center
+                    - margin-left: auto, margin-right: auto
+
+            Pseudo class: define a state of an element
+                - Syntax: selector:pseudo-classs { property : value; } 
+                - e.g. a:hover { color: white; }
+
+        Week 3: Bootstrap
+            Grid System: https://getbootstrap.com/docs/5.2/layout/grid/ 
+                - provides 12 column grid system for building layouts of all shapes & sizes
+                - can easily design the layout by doing col-*, where * can range from 1 to 12
+
+        
+            Breakpoints: https://getbootstrap.com/docs/5.2/layout/breakpoints/ 
+                - customizable widths that determine how your responsive layout behaves across devices
+                - e.g. col-lg-6, col-md-4, col-sm-2, row-cols-md-2
+            
+            Utilities: 
+                color: -primary, -secondary, -success, -danger, -warning, -info, -dark, -light
+                spacing: p{t,b,s,e,x,y}-{0-5}, m{t,b,s,e,x,y}-{0-5}
+                sizing: w-{0, 25, 50, 75, 100, auto} h-{0, 25, 50, 75, 100, auto}
+                ...
+          
+        Week 4: Javascript Basics
+            var vs let
+                - var & let   : Global scope if defined outside function
+                - var & let   : Function scope if defined inside function
+                - let         : Block scope if defined inside block
+            
+
+            for  : loop as long as given condition evaluates to true 
+            for...in : loop through properties of an object 
+            for...of : loop through values of an iterable variable 
+                                (e.g. Array, String, NodeList etc.) 
+
+            Number Operations: Number(), parseInt(), parseFloat(), isNaN()
+
+            String Operations : length, indexOf(), toUpperCase(), trim(), slice(), 
+                                    substr(), replace(), split(), many more...
+
+            Array Operations : legnth, push(), pop(), splice(), join(), 
+                                    slice(), sort(), reverse(), many more...
+
+            Object: Read/Write operations
+            
+            Callback functions : setTimeOut, filter, find, forEach, ...
+
+        Week 5-6: DOM Manipulation & Event Handling
+
+            HTML Elements have properties and methods
+            - property is a value that you can get or set -- elem.value, elem.type, elem.id, elem.name, etc.
+            - method is an action that you can perform for accessing elements, attributes, creating, or removing elements
+
+            Access elements: (Mindful of the typo error)
+                getElementById 
+                getElementsByClassName 
+                getElementsbyTagName 
+
+            Modifying attribute values:
+                elem.setAttribute("id", "unique")
+                elem.setAttribute("class", "is216")
+                elem.id = "unique"
+
+            Modifying via innerText and innerHTML
+                elem.innerHTML = "<p>...</p>"
+                elem.innerText = "new text content"
+
+            Add/Remove elements: createElement, createTextNode, appendChild, remove
+
+        
+        Week 6: Asynchronous Call and JSON data handling
+
+            Axios -- a library for making Async. Requests
+
+                Syntax: 
+                    // GET request
+                    axios.get(url, {
+                        params: {
+                            name1 : value1,
+                            name2 : value2
+                        }
+                    })
+                    .then(response => {
+                            // process response.data object
+                    })
+                    .catch(error => {
+                        // process error object
+                    })
+
+                    // POST request
+                    axios.post(url, {
+                        name1 : value1,
+                        name2 : value2
+                    })
+                    .then(response => {
+                        // process response.data object
+                    })
+                    .catch(error => {
+                        // process error object
+                    })
+
+    
+            JSON 
+                Syntax: 
+                    {   "name" : value, 
+                        "name" : { "name" : value }, 
+                        "name" : [ value, value, ... ]
+                    }
+                e.g.
+                    {   "name": "Mary",
+                        "age":  26,
+                        "spouse" : { "name" : "John", "age": 27 }
+                        "hobby":["swimming","badminton"],
+                        "isMarried":true
+                    }
+
+            - Converting between JSON string and JS object
+                    JSON.parse() : covert JSON string to JS object
+                    JSON.stringify() : convert JS object to JSON string
+
+                - Note: when we use Axios, it internally performs JSON.parse() 
+                        and assign the resulting JS object to response.data
+                        Hence, response.data is already a JS object (no need converting)
+           
+            x. use of backtick `` for breaking the string into multi-lines
+            x. encodeURI(url) : for treating special characters such as space, slash / that have syntactic meaning to URL: https://www.w3schools.com/jsref/jsref_encodeURI.asp
+
+    -->
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="revision.js"></script>
+
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        a:hover { color: green; }
+        
+        #div1 {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .box {
+            position: relative; /* to set up so that the child can move around inside it*/
+            background-color: rgb(198, 151, 151);
+        }
+
+        #paint {
+            width: 100%;
+        }
+
+        .label {
+            position: absolute; /* to move wrt to the parent (parent must first be position relative) */
+            bottom: 15px;
+            right: 15px;
+        }
+
+        #info {
+            /* padding-left: 50%;
+            padding-right: 50%;  */
+            background-color: blue;
+            width:100%;
+            color: white;
+
+        }
+      
+    </style>
+</head>
+<body onload="getUser()">
+
+    <h1>Revision</h1>
+
+    <div id="app">
+        <ul>
+            <li>
+                Add code in getUser() in revision.js such that when this page is loaded a random user's image, first name, last name, email should be displayed as shown in the figure below. the The input field should shows the user's current email.
+            </li>
+            <li>To obtain a random user, use the API given in random.js and make AXIOS GET request.</li>
+            <li>If the random user's gender is female, change the background color to Pink. Otherwise, change it to Blue.</li>
+            <li>Add code in update() in revision.js such that when you make changes to the email address, the email gets updated.</li>
+            <li>When "Get Random User" button is clicked, a new random user should be fetched and the information displayed should be updated accordingly.</li>
+        </ul>
+        <div style="text-align:center;"><img src="expected_output.png" alt=""></div>
+
+        <hr><hr>
+        <div id="info" class="male text-center"> 
+            <!-- display random user's image here -->
+            <img id="picture" src="" alt="image">
+
+            <div id="name" >
+                <!-- display first name and last name here --> 
+                firstName LASTNAME
+            </div>
+
+            <div id="email">
+                 <!-- display email here --> 
+                 xxx@email.com
+            </div>
+        </div>
+
+         <!-- add event listener so that when you change the email, the above email address is updated automatically-->
+         <div class="text-center">
+            Change email: <input id="updateEmail" type="text" name="email">
+            <button>Get Random User</button>
+         </div>
+      
+    </div>
+
+    <hr>
+
+   
+    <!-- <div id="div1">
+        Name: <input type="text" name="name">
+        Age: <input type="number" name="age" max='80' min='10'> 
+
+        School: <select name="school" id="">
+            <option value="scis">SCIS</option>
+            <option value="soa" selected>SOA</option>
+            <option value="lkcsb">LKCSB</option>
+        </select>
+    </div>
+
+    Favorite Subject(s): 
+        <label for="is111"><input type="checkbox" class="subj" name="" value="is111" id="is111">IS111</label>
+        <label for="is113"><input type="checkbox" class="subj"  name="" value="is113" id="is113">IS113</label>
+        <label for="is216"><input type="checkbox" class="subj" name="" value="is216" id="is216" checked>IS216</label>
+
+    <hr>
+
+    <div class="box">
+        <img id="paint" src="./paint.jpg" alt="">
+
+        <p class="label">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+    </div>
+
+    <hr> -->
+
+    <script>
+        var x = "Global"
+        foo()
+
+        function foo() {
+            x = "Global or Local?"
+            console.log(x)
+
+            // let fruits = ['apple', 'orange', 'peach']
+
+            // for(let x of fruits) {
+            //     // do nothing
+            // }
+            // console.log(x)
+        }
+
+        console.log(x)
+
+
+        // var subjects = document.getElementsByClassName("subj")
+        // for (let subj of subjects) {
+        //     console.log(subj.value)
+        //     if (subj.checked) {
+        //         console.log(`${subj.value} is your fav subj`)
+        //         // subj refers to the checkbox element. 
+        //         // checkbox element do not have any text. Its parent (label) element has the text content
+        //         console.log(subj.parentNode.textContent)
+        //         console.log(subj.parentNode.innerHTML)
+        //     }
+          
+        // }
+
+    //     // object access
+    //     var user = { name: 'Jack', age: 19 }
+    //     for ( let prop in user ) {
+    //         console.log(prop)
+    //         console.log(user[prop])
+    //         // cannot do like this
+    //         console.log(user.prop)
+    //     }
+    //     /*
+    //         modify obj prop.
+    //         Notice two different ways
+    //     */
+    //    user['name'] = 'Mary'
+    //    user.name += ' James'
+    //    console.log(user.name)
+
+    </script>
+
+    
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+   
+    
+</body>
+</html>
