@@ -11,7 +11,9 @@
    <h1>Shopping List</h1>
    <p>Get it done today</p>
    
-     <!-- add HTML code here -->
+   <!-- add HTML code here -->
+   <input type="text" name="item" id="item" placeholder="enter items" onkeypress="enter()">
+   <button onclick="update()">Enter</button>
 
    <ul>
       <li>Notebook</li>
@@ -24,7 +26,27 @@
    
    <script>
    
-     // add code here
+      // add code here
+      
+      //get user input
+      function update(){
+         var userInput = document.getElementById("item").value
+         var toEnter = document.createTextNode(userInput)
+
+         var li = document.createElement("li")
+         li.appendChild(toEnter)
+
+         var ul = document.getElementsByTagName("ul")[0]
+         ul.appendChild(li)
+      }
+      
+      function enter(){
+         console.log(event)
+         if(event.keyCode == 13){
+            update()
+         }
+
+      }
 
    </script>
    
