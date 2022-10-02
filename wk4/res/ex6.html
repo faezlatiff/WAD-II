@@ -17,17 +17,26 @@
         apply(incr, [1,2,3]); //result: [2,4,6]
         apply(Number, ["string", 5, this, NaN]) //result: [NaN, 5, NaN, NaN]
         */
-        function fn(x){
-            console.log(x+1);
+        x = [6,7,8,9]
+
+        console.log(apply(substr,x))
+
+        //function to subtract 1 from value
+        function substr(x){
+            return x-1;
         }
-        
-        function apply(f,arr){
-            var x;
-            var len = y.length;
-            for(var i = 0; i<=len; i++ ){
-                fn(arr[i])
+
+        //function to apply substr() function to an arr
+        function apply(fn,x){
+            var arr = []
+            for(let num of x){
+                let res = fn(num)
+                arr.push(res)
             }
+            return arr
         }
+
+
 
 	</script>
 </body>

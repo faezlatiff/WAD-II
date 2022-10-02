@@ -6,17 +6,24 @@
 <body>
 
 	<script>
-		var str = prompt("If you provide a string, I will tell you if it is a Palindrome!").toLowerCase(); 
        	// TODO: add your code here
-		str = str.replace(/\s/g, '')
-	
-		var str_reversed = str.toLowerCase().split("").reverse().join("");
-		if(str_reversed == str){
-			alert("String is a Palindrome!")
-		} else {
-			alert("String is not a Palindrome!")
+		var str = prompt("If you provide a string, I will tell you if it is a Palindrome!").toLowerCase(); 
+		
+		while(!checkPalindrome(str)){
+			alert("Not a Palindrome!")
+			var str = prompt("Try again!").toLowerCase(); 
 		}
 
+		alert('Palindrome!')
+
+		function checkPalindrome(str){
+			str = str.replace(/\s/g, '');
+			var reversed = str.split("").reverse().join("");
+			if(str!=reversed){
+				return false;
+			}
+			return true;	
+		}
 
 	</script>
 </body>
