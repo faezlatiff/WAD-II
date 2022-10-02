@@ -10,6 +10,7 @@ str.split("")
 
 //reverse array
 arr.reverse()
+
 //bootstrap + js code
 `
 <!doctype html>
@@ -32,4 +33,15 @@ arr.reverse()
   </body>
 </html>
 `
+//function for pressing enter (wk5 ex3)
+function enter(){
+    console.log(event)
+    if(event.keyCode == 13){
+       update()
+    }
+ }
 
+//function for removing parent nodes (wk5 ex3)
+ function remove(node){
+    node.parentNode.remove()
+ }

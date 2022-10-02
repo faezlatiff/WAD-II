@@ -19,6 +19,16 @@
     <script>
         
         // add code here
+        //event listener
+        var checkbox = document.getElementById("select_item")
+        checkbox.addEventListener("change",doSomething)
+        function doSomething(){
+            //adds to list
+            var li = document.createElement("li")
+            li.innerText = checkbox.value 
+            var ul = document.getElementById("shopList")
+            ul.appendChild(li)
+        }
     
     </script>
 

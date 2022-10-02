@@ -16,25 +16,23 @@
    <button onclick="update()">Enter</button>
 
    <ul>
-      <li>Notebook</li>
-      <li>Jello</li>
-      <li>Spinach</li>
-      <li>Rice</li>
-      <li>Birthday Cake</li>
-      <li>Candles</li>
+      <li>Notebook <button onclick="remove(this)">Remove</button></li>
+      <li>Jello <button onclick="remove(this)">Remove</button></li>
+      <li>Spinach <button onclick="remove(this)">Remove</button></li>
+      <li>Rice <button onclick="remove(this)">Remove</button></li>
+      <li>Birthday Cake <button onclick="remove(this)">Remove</button></li>
+      <li>Candles <button onclick="remove(this)">Remove</button></li>
    </ul>
    
    <script>
-   
       // add code here
-      
       //get user input
       function update(){
          var userInput = document.getElementById("item").value
          var toEnter = document.createTextNode(userInput)
 
          var li = document.createElement("li")
-         li.appendChild(toEnter)
+         li.innerHTML = userInput + "<button onclick='remove(this)'>Remove</button>"
 
          var ul = document.getElementsByTagName("ul")[0]
          ul.appendChild(li)
@@ -45,8 +43,13 @@
          if(event.keyCode == 13){
             update()
          }
-
       }
+
+      function remove(node){
+         node.parentNode.remove()
+      }
+
+
 
    </script>
    

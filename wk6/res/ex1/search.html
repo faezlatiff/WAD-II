@@ -27,33 +27,21 @@
 
             // change this URL according to where you place your getHint.php file in your localhost
             // You may test this API endpint using this: http://localhost/is216/wk6/sol/ex1/getHint.php?query=a
-            var url = "http://localhost/is216/WAD-II/wk6/res/ex1/getHint.php"
+            var url = "http://localhost/is216/wk6/res/ex1/getHint.php"
             
             function showHint(){
-                var input = document.getElementById('name').value
-                //console.log(input);
-                    axios.get(url, {
-                    params: {
-                        query:  input
-                    }
-                    })
-                    .then(response => {                        
-                        var suggestion = document.getElementsByTagName('span')[0]
-                        // if(suggestion.innerHTML.length > 0){
-                        //     suggestion.innerHTML =''
-                        // }
-                        var output = response.data
-                        var node = document.createTextNode(output)
-                        suggestion.innerText = node
-                        
-                        
+                axios.get(url)
+                    .then(response => {
+                        console.log(response.data)
+
                     })
                     .catch( error => {
                         console.log(error.message);
                     });
-            }
-     
 
+            
+            }
+    
         </script>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
