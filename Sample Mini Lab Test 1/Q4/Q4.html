@@ -76,27 +76,20 @@
     </div>
     <script>
         //Your code should be entirely here. Do not change anything else. 
-        var order = []
+        function updt(nodeValue){
+            //things to do
+            //remove h1 when something is checked
+            var headerDiv = document.getElementById("orderInfo")
 
+            //add checked items to top of page
+            //can be done by creating elements and showing them at top
+            
 
-        //show checked items on top of page
-
-        function updt(foodName){
+            var li = document.createElement("li")
+            li.innerText = nodeValue
+            headerDiv.appendChild(li)
 
         }
-
-        foodName = "Set 2"
-        var searchPrice = foodName + ' Price'
-        var price = document.getElementById(searchPrice)
-        var total = 0
-
-        //append to orderInfo div
-        let ele = document.getElementById('orderInfo');
-        ele.innerHTML += 'Hello, I am Arun';
-
-
-
-
 
     </script>
 </body>
