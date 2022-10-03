@@ -75,42 +75,9 @@
         </ul>
     </div>
     <script>
-        var orders = [];
-        var totalPrice = 0;
+        //Your code should be entirely here. Do not change anything else. 
 
-        function updateOrderInfo() {
-            var orderElem = document.getElementById('orderInfo'); 
 
-            if (orders.length == 0) {
-                orderElem.innerHTML = '<h1>You haven\'t ordered anything.</h1>'; //1 point for displaying the nothing message correctly
-            }
-            else {
-                var toset = '<h1>Your Order.</h1><ul>'; //1 point for displaying the items
-                for (item of orders) { //1 point for iterating through all the items.
-                    console.log(item)
-                    var priceElem = document.getElementById(item + ' Price');
-                    toset += '<li>' + item + ': ' + priceElem.textContent;
-                }
-                toset += '</ul><h1>Your order has a total of: ' + totalPrice + '.</h1>' //1 point for displaying the total price 
-                orderElem.innerHTML = toset;
-            }
-        }
-
-        function updt(order) {
-            var ind = orders.indexOf(order); 
-            console.log(ind)
-            var price = Number(document.getElementById(order + ' Price').textContent); //1 point for reading the price
-            if (ind < 0) { //1 point for checking whether the item was selected
-                orders.push(order); //1 point for adding the item 
-                totalPrice += price; //1 point for increasing the total 
-            }
-            else {
-                orders.splice(ind, 1); //1 point for removing the item
-                totalPrice -= price; //1 point for decreasing the total
-            }
-
-            updateOrderInfo();
-        }
     </script>
 </body>
 
