@@ -45,3 +45,6 @@ function enter(){
  function remove(node){
     node.parentNode.remove()
  }
+
+ //
+ transform: translate(-50%,-50%);

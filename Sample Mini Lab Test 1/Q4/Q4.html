@@ -76,19 +76,26 @@
     </div>
     <script>
         //Your code should be entirely here. Do not change anything else. 
+        var orders = []
         function updt(nodeValue){
-            //things to do
-            //remove h1 when something is checked
+            orders.push(nodeValue)
+            updateOrders(orders)
+        }
+
+        function updateOrders(orders){
             var headerDiv = document.getElementById("orderInfo")
+            if(orders.length == 0){
+                headerDiv.innerHTML = "<h1> You haven't ordered anything. </h1>"
+            } 
+            else {
+                headerDiv.innerHTML = "<h1> Your order: </h1>"
+                for(item of orders){
+                    var li = document.createElement("li")
+                    li.innerText = nodeValue
+                    headerDiv.appendChild(li)
+                }
 
-            //add checked items to top of page
-            //can be done by creating elements and showing them at top
-            
-
-            var li = document.createElement("li")
-            li.innerText = nodeValue
-            headerDiv.appendChild(li)
-
+            }
         }
 
     </script>
