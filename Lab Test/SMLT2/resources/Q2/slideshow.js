@@ -14,12 +14,10 @@ function display_default() {
     // YOUR CODE GOES HERE
     // YOU MAY ADD MORE FUNCTION(S) IF YOU WISH
     var url = "api/info.php"
-    console.log(url);
 
     axios.get(url)
         .then(response => {
             var countries = response.data.military_statistics
-            console.log(countries)
             //find img and show
             var active = " active"
             var first = true
@@ -33,7 +31,7 @@ function display_default() {
                 <img src="${img}" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>${country}</h5>
-                    <p>${leader}}</p>
+                    <p>${leader}</p>
                 </div>
 
                 </div>`

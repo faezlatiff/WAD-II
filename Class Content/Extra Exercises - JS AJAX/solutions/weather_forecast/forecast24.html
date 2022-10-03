@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<html>
+
+<head>
+    <title>Weather forecast - 24 hour</title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" 
+    rel="stylesheet" 
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" 
+    crossorigin="anonymous">
+
+
+    <!-- Axios -->
+    <script src="https://unpkg.com/axios/dist/axios.js"></script>
+
+</head>
+
+<body class="p-3">
+
+    <nav class="navbar navbar-expand-sm bg-light">
+
+        <!-- Links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href='forecast2hourly.html'>2-hourly</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href='forecast24.html'>24-hour</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href='forecast4days.html'>4-days</a>
+            </li>
+        </ul>
+    </nav>
+
+    <h2 id="heading">24-hour dated </h2>
+    <h2 id="forecast"></h2>
+
+    <table class='table table-bordered'>
+        <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Low</th>
+                <th scope="col">High</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope='row'>Temperature</th>
+                <td id='temperature-low'></td>
+                <td id='temperature-high'></td>
+            </tr>
+            <tr>
+                <th scope='row'>Humid</th>
+                <td id='humid-low'></td>
+                <td id='humid-high'></td>
+            </tr>
+            <tr>
+                <th scope='row' id='wind'>Wind Speed</th>
+                <td id='wind-low'></td>
+                <td id='wind-high'></td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <table class='table table-bordered'>
+        <thead>
+            <th scope="col">Start</th>
+            <th scope="col">End</th>
+            <th scope="col">North</th>
+            <th scope="col">South</th>
+            <th scope="col">East</th>
+            <th scope="col">West</th>
+            <th scope="col">Central</th>
+        </thead>
+        <tbody id='periods'></tbody>
+    </table>
+
+
+
+    <script src="script.js"></script>
+    <script>
+
+        now = new Date();
+
+        var nowStr = now.toISOString();
+        nowDate = nowStr.slice(0, 10);
+
+
+        axios.get("https://api.data.gov.sg/v1/environment/24-hour-weather-forecast?date="
+            + encodeURIComponent(nowDate)
+        )
+            .then(response => {
+                var obj = response.data;
+
+                // use the latest update
+                let latestUpdate = obj.items[obj.items.length - 1];
+
+                let general = latestUpdate.general;
+
+                document.getElementById("heading").innerText +=
+                    " " + nowDate + " " + getTimePart(latestUpdate.timestamp) + "H";
+
+                document.getElementById("forecast").innerText = general.forecast;
+
+                document.getElementById("humid-low").innerText = general.relative_humidity.low;
+                document.getElementById("humid-high").innerText = general.relative_humidity.high;
+
+                document.getElementById("temperature-low").innerText = general.temperature.low;
+                document.getElementById("temperature-high").innerText = general.temperature.high;
+
+                document.getElementById("wind").innerText += " (" + general.wind.direction + ")";
+                document.getElementById("wind-low").innerText = general.wind.speed.low;
+                document.getElementById("wind-high").innerText = general.wind.speed.high;
+
+
+                let periods = latestUpdate.periods;
+                let period_tbody = document.getElementById("periods");
+
+                for (period of periods) {
+                    let tr = document.createElement('tr');
+                    period_tbody.appendChild(tr);
+
+                    let th = document.createElement('th');
+                    th.scope = 'row';
+                    let text = document.createTextNode(period.time.start);
+                    th.appendChild(text)
+                    tr.appendChild(th);
+
+                    th = document.createElement('th');
+                    th.scope = 'row';
+                    text = document.createTextNode(period.time.end);
+                    th.appendChild(text)
+                    tr.appendChild(th);
+
+                    tr.appendChild(createTD(period.regions.north));
+                    tr.appendChild(createTD(period.regions.south));
+                    tr.appendChild(createTD(period.regions.east));
+                    tr.appendChild(createTD(period.regions.west));
+                    tr.appendChild(createTD(period.regions.central));
+                }
+
+            })
+            .catch(error => {
+                document.getElementById("output").innerText = 'HTTP Error ' + error;
+
+            })
+
+    </script>
+
+
+    <!-- Bundled Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" 
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>
