@@ -1,0 +1,22 @@
+/*
+ Name: TAM Yong Zheng Dominic
+ Email: dominic.tam.2021
+ */
+
+.box {
+	width: 300px;
+	height: 180px;
+	border: 2px solid red;
+	border-radius: 25px;	
+	margin-bottom: 10px;
+	text-align: center;
+	position: relative;
+	padding: 20px;
+	background-color: lightyellow;
+}
+
+h4 {
+	position: absolute;
+	right: 30px;
+	font-style: italic;
+}
