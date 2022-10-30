@@ -1,0 +1,102 @@
+<!--
+    
+Name:   
+Email:  
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <!--
+          This program calculate how long it takes for you to reach your goal
+          based on a given interest rate (per year)
+     -->
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+     <!-- DO NOT REMOVE
+          REFERENCE TO LOCAL BOOTSTRAP CSS
+     -->
+     <link rel="stylesheet" href="../Bootstrap/bootstrap.min.css">
+     <title>Q1 - Savings</title>
+     <style>
+
+          #content{
+               width: 70%;
+          }
+          #content h1{
+               margin: 40px 0px 30px 0px;
+               
+          }
+          #calculate{
+               margin: none;
+          }
+          .input-group{
+               margin: 16px 0px;
+          }
+          #fields{
+               margin-bottom: 48px;
+          }
+
+     </style>
+</head>
+<body>
+     
+     
+     <!--
+          YOUR CODE GOES HERE
+     -->
+
+     <div id="content" class="mx-auto">
+          <h1 class="mt-5 text-center">Savings</h1>
+          <h2 class="text-primary text-center mb-0">How long does it take for me to reach my goal?</h2>
+
+          <div class="text-center">
+               <div id="fields" class="mt-5">
+                    <div class="input-group mb-3">
+                         <div class="input-group-prepend">
+                           <span class="input-group-text" id="basic-addon1">Initial Amount ($)</span>
+                         </div>
+                         <input type="text" class="form-control" id="amount" placeholder="" aria-label="" aria-describedby="basic-addon1">
+                    </div>
+                    <div class="input-group mb-3">
+                         <div class="input-group-prepend">
+                           <span class="input-group-text" id="basic-addon1">Yearly Interest (%)</span>
+                         </div>
+                         <input type="text" class="form-control" id="interest" placeholder="" aria-label="" aria-describedby="basic-addon1">
+                    </div>
+                    <div class="input-group mb-3">
+                         <div class="input-group-prepend">
+                           <span class="input-group-text" id="basic-addon1">My Goal ($)</span>
+                         </div>
+                         <input type="text" class="form-control" id="goal" placeholder="" aria-label="" aria-describedby="basic-addon1">
+                    </div>
+               </div>
+          </div>
+          <div id="calculate">
+               <button type='button' class='btn btn-danger text-light' onclick="calculate()">Calculate</button>
+          </div>
+     </div>
+
+
+
+
+
+
+
+
+     <!-- DO NOT REMOVE
+         REFERENCE TO LOCAL BOOTSTRAP JAVASCRIPT
+     -->
+     <script src="../Bootstrap/bootstrap.bundle.min.js"></script>
+
+     <!-- DO NOT REMOVE
+         REFERENCE TO LOCAL EXTERNAL JAVASCRIPT
+     -->
+     <script src="savings.js"></script>
+     
+</body>
+</html>
+
+

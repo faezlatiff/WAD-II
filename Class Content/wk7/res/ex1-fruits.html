@@ -16,7 +16,32 @@
 </div>
 
 <script>
-  // Add Code Here
+// <div id='app'></div>
+const app = Vue.createApp({ 
+    data() { 
+        return { 
+            message:"Choose your favourite fruit:"
+            , fruit1: 'apple',
+            fruit2: 'orange',
+            fruit3: 'peach'
+        };
+    }, // data
+    // computed: { 
+    //     derivedProperty() {
+    //         return false;
+    //     }  
+    // }, // computed
+    // created() { 
+    // },
+    // mounted() { 
+    // },
+    methods: {
+        methodName() {
+            
+        }
+    } // methods
+});
+const vm = app.mount('#app'); 
 </script>
 
 <!-- challenge: use array  -->
