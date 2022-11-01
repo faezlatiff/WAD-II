@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Compute Age</title>
+    <!-- directly using vue.js -->
+    <!-- for production version, use vue.min.js -->
+    <!-- we shall use development version, includes helpful console warnings -->
+    <!-- <script src="vue.js"></script> --> 
+
+    <!-- using CDN -->
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id='app'>
+        <label>Kindly enter your birthday:
+        <input v-model = "birthday" placeholder="MM/DD/YYYY"></label>
+        <p> Your age is: {{age}} </p>
+    </div> 
+    <script>
+        //todo: create a Vue instance to finish the task
+        const app = Vue.createApp({
+            data() {
+                return{
+                    birthday:'',
+                }
+            },
+            computed : {
+                age(){
+                    const date = new Date();
+                    let dateMS = date.getTime()
+                    // let day = date.getDate();
+                    // let month = date.getMonth();
+                    // let year = date.getFullYear();
+
+                    // let bDay = this.birthday.slice(3,5);
+                    // let bMonth = this.birthday.slice(0,2);
+                    // let bYear = this.birthday.slice(-4) ;
+
+                    // var num = parseInt(year) - parseInt(bYear);
+
+                    // if(parseInt(bMonth)>parseInt(month)){
+                    //     num--;
+                    // } 
+                    // else if(parseInt(bMonth)==parseInt(month) && parseInt(bDay) < parseInt(day)){
+                    //     num--
+                    // }
+
+                    let birthDate = new Date(this.birthday)
+                    let birthDateMS = birthDate.getTime()
+                    let ageMS = dateMS - birthDateMS
+                    let ageCalculated = Math.floor(ageMS/31536000000)
+                    
+                    return isNaN(ageCalculated) ? '':ageCalculated
+
+
+                    
+                }
+            }
+        }).mount('#app')
+    </script>
+
+</body>
+</html>

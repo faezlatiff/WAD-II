@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Vue 3 -->
+    <script src="https://unpkg.com/vue@next"></script>    
+</head>
+<body>
+    <div id="app">
+        <select v-model="selected">
+          <option v-for="fruit in fruits" v-bind:value="fruit.name">
+            {{fruit.name}}
+          </option>
+        </select>
+        <span>Selected: {{fruit.value}}</span>
+      </div>
+      <script>
+        Vue.createApp({
+          data() {
+              return {
+                  selected: 'apple',
+                  fruits: [
+                    { name: 'Apple', value: 'apple' },
+                    { name: 'Orange', value: 'orange' },
+                    { name: 'Pear', value: 'pear' }
+                  ]
+      
+              };
+          }
+        }).mount('#app');
+      </script>
+</body>
+</html>

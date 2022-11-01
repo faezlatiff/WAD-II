@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!--
+        What is Vue Component? -> self-contained & reusable custom element
+        1. Vue Component Syntax : 
+            Vue.createApp( {} ).
+                component('comp-name', {
+                                    props : ['prop1', 'prop2'],
+                                    
+                                    emits : ['event1', 'event2'],
+                                    
+                                    template: `HTML code 
+                                        {{ prop1 }}
+                                    `,
+                                    
+                                    data: function() {
+                                        return { val : 'some data' }
+                                    },
+                                    
+                                    methods: {
+                                        compute: function() {
+                                            // compute something
+                                        }
+                                    },
+                                    computed: {
+                                        someValue () {
+                                            return "some value"
+                                        }
+                                    }
+                                    
+                                }
+                        )
+
+        2. Register component before mount
+
+        3. Single root element
+
+        4. Passing data to component with props -- custom attributes
+
+        5. Passing content with Slots
+
+        6. Emitting Events & Data
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Component</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+    <style>
+        body {  
+            background: linear-gradient(to right, rgb(90, 216, 255), rgb(254, 63, 97)); 
+        }
+    </style>
+
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <!-- Axios -->
+    <script src="https://unpkg.com/axios/dist/axios.js"></script>
+</head>
+<body>
+
+    <div id='app'>
+        <div v-bind:style="{'display':'flex','font-size': fontSize + 'em'}">
+           
+
+            <user v-for="(user,id) in users" v-bind:id="id" v-bind:picture="user.picture" v-bind:name="user.firstName" v-bind:email="user.email" v-on:enlarge="doAction">
+                <!-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic commodi incidunt facere beatae harum nostrum animi laudantium nisi! Deleniti quibusdam quisquam veritatis, qui labore quam corporis voluptatem neque cum culpa? -->
+            </user>
+
+
+        </div>
+    </div> 
+
+    <script>
+
+        var x = 10
+       
+        const app = Vue.createApp(
+            {  // options object
+                data() {
+                    return {
+                        url: "https://randomuser.me/api",
+                        title: "<h1 style='color:red;'>Random User Generator</h1>",
+                        users : [],
+                        num_users: 3,
+                        fontSize: 1
+                    }
+                },
+
+                methods: {
+                    doAction(size) {
+                        this.fontSize += size
+                    },
+
+                    getUser() {
+                        axios.get(this.url) // this will make an Async Request
+
+                        .then( response => {
+                            console.log(response.data)
+                            user = {}
+                            user.firstName = response.data.results[0].name.first
+                            user.lastName = response.data.results[0].name.last
+                            user.gender = response.data.results[0].gender
+                            user.picture = response.data.results[0].picture.medium
+                            user.email = response.data.results[0].email
+
+                            this.users.push(user)
+
+                        })
+
+                        .catch( error => {
+                            console.log(error.message)
+                        })
+
+                        this.randomIdx = Math.floor(Math.random() * 3)
+                    }
+                },
+                created() {
+                    for (let i=0; i < this.num_users; i++) {
+                        this.getUser()
+                    }
+                   
+                }
+
+            }
+        )
+
+    </script>
+
+    <script>
+        app.component('user', {
+
+            // props: [ 'name', 'email', 'picture'],
+            props: {
+                id: Number,
+                picture : String,
+                name : String,
+                email :String
+            },
+            emits: ['enlarge'],
+            data() {
+                return {
+                    counter : 0,
+                    msg : ""
+                }
+            },
+            methods: {
+                doReact(action) {
+                    if (action == 'like') {
+                        this.msg = "I like you too!"
+                    } else {
+                        this.msg = "I hate you!"
+                    }
+                  
+                },
+                doEmit() {
+                   console.log("in emit")
+                   // generate/emit a custom event
+                   this.$emit('enlarge', 0.1)
+
+                }
+            },
+
+            template: `
+            <div class="card" style="width: 18rem;">
+                <img v-bind:src="picture" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title" v-on:click="doEmit()"> {{ name }} </h5>
+                    <p class="card-text"> {{ email }} </p>
+                    <p class="card-text" v-on:click="$emit('enlarge', 0.1)"> <slot></slot></p>
+                    <button class="m-2 btn btn-primary" v-on:click='doReact("like")'>Like</button>
+                    <button class="m-2 btn btn-danger" v-on:click='doReact("unlike")'>UnLike</button>
+                    <p class="card-text"> {{ msg }} </p>
+                </div>
+                </div>
+            ` // all elements are usually placed inside a single root element
+        })
+
+
+        app.mount('#app')
+         
+    
+    </script>
+
+   
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+
+</body>
+</html>

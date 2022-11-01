@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        WAD II: Week 4
+    </title>
+
+   <!-- Bootstrap CSS -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+   
+</head>
+
+<body>
+    <div id="div1" class="bg-primary m-2 p-2">Hello!</div>
+
+    <script>
+
+        var divEle = document.getElementById("div1"); // this is an object
+
+        var num = [2000, 5000, 60000, 700000];
+
+        var nf = function(element){
+            return element > 5;
+        }
+
+        var result = [2000, 5000, 60000, 700000].filter( function(element){
+            return element > 5;
+        }  )
+
+        var anotherFunc = function(a, b, c) {
+            return a * 2;
+        }
+        // map each element in the given array to a different elment
+       var anotherResult = num.map(anotherFunc); // 2 6 8 10
+
+        divEle.innerHTML = anotherResult; //2 6 8 10
+
+
+
+        setTimeout( function () {
+                console.log("hello is216")
+            } , 3000) // wait 3 sec and then invoke nf
+
+        // console.log(divEle);
+       
+
+        var f = function (new_hobby) {
+                this.hobby.push(new_hobby);
+                console.log(this.hobby)
+            } // anonymous function
+
+        var hobby = ["running", "reading"];
+
+        f("football"); // when there is no specific object, 'this' refers to the global object
+
+
+        var prop = "age";
+        var user = {
+            // prop: "a property",
+            name: "Mary",
+            age: 26,
+            hobby: ["swimming", "badminton"],
+            isMarried: false,
+            addHobby: f
+        }; // this is an object
+        
+        //the following shows how to access object properties and methods
+        //console.log(user.prop);
+        console.log(user[prop]); // in PHP, similar to accessing assoc. array
+
+        // user.prop; // Java, Python
+        user.addHobby("boulder");
+        user["addHobby"]("basketball"); 
+        console.log(user.hobby);
+
+        var props = "";
+        
+
+        //the following shows how to modify object properties and methods
+        user.age = 27;
+        user["isMarried"] = true; 
+
+        user.addHobby = new Function("new_hobby", "this.hobby.unshift(new_hobby)"); 
+
+       
+        i = "name";
+
+        console.log(i)
+        //the following shows how to introduce new properties and methods 
+        user.height = 170;
+        user.countHobbies = new Function("return this.hobby.length");
+        //console.log("after introducing new properties and methods");
+        //console.log(user);
+         //console.log("after updating properties and methods");
+        //console.log(user);
+        for (let propName in user) {
+            // 1st iteration, propName = "name", user[propName] = "Mary"
+            // 2nd iteration, 
+            // alert(propName);
+            props += propName + ": " + user[propName] + "; \n";
+        }
+        //divEle.innerText = props
+        //console.log(propName);
+
+        //the follwing shows how to delete properties and methods
+        delete user.height;
+        delete user.countHobbies;
+        //console.log("after deleting new properties and methods")
+        //console.log(user)
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

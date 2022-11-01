@@ -1,0 +1,150 @@
+{
+    "image": {
+        "edge_color_set": true,
+        "edge_color": "#c6b6aa",
+        "url": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F338383989%2F91928434863%2F1%2Foriginal.20220819-093214?w=512&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C17%2C1200%2C600&s=e25e79ff478daf2e529f19c874eb8bc7",
+        "original": {
+            "url": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F338383989%2F91928434863%2F1%2Foriginal.20220819-093214?auto=format%2Ccompress&q=75&sharp=10&s=dffedc8f2a9961f1d072384b614808d2",
+            "width": 1200,
+            "height": 628
+        },
+        "crop_mask": {
+            "width": 1200,
+            "height": 600,
+            "top_left": {
+                "y": 17,
+                "x": 0
+            }
+        },
+        "aspect_ratio": "2",
+        "id": "338383989"
+    },
+    "saves": {
+        "saved_by_you": false
+    },
+    "event_sales_status": {
+        "start_sales_date": {
+            "timezone": "Asia/Singapore",
+            "local": "2022-08-18T00:00:00",
+            "utc": "2022-08-17T16:00:00Z"
+        },
+        "default_message": null,
+        "sales_status": "on_sale",
+        "message_code": null,
+        "message": null,
+        "message_type": null
+    },
+    "timezone": "Asia/Singapore",
+    "id": "400585832007",
+    "tickets_url": "https://www.eventbrite.com/checkout-external?eid=400585832007",
+    "tickets_by": "Eventbrite",
+    "primary_organizer_id": "15701828760",
+    "dedup": {
+        "count": 1,
+        "hash": "f67a445c313618be1a600a525e8146b9"
+    },
+    "num_children": 1,
+    "debug_info": {},
+    "parent_url": null,
+    "hide_end_date": false,
+    "start_date": "2022-10-29",
+    "end_time": "12:00",
+    "_type": "destination_event",
+    "public_collections": {
+        "creator_collections": {
+            "object_count": 0,
+            "collections": []
+        }
+    },
+    "ticket_availability": {
+        "is_sold_out": false,
+        "is_free": false,
+        "minimum_ticket_price": {
+            "currency": "SGD",
+            "major_value": "0.00",
+            "value": 0,
+            "display": "0.00 SGD"
+        },
+        "has_available_tickets": true,
+        "maximum_ticket_price": {
+            "currency": "SGD",
+            "major_value": "0.00",
+            "value": 0,
+            "display": "0.00 SGD"
+        }
+    },
+    "end_date": "2022-10-29",
+    "tags": [
+        {
+            "prefix": "EventbriteCategory",
+            "tag": "EventbriteCategory/199",
+            "display_name": "Other",
+            "localized": {
+                "display_name": "Other"
+            }
+        },
+        {
+            "prefix": "EventbriteFormat",
+            "tag": "EventbriteFormat/2",
+            "display_name": "Seminar or Talk"
+        }
+    ],
+    "eventbrite_event_id": "400585832007",
+    "start_time": "10:00",
+    "primary_venue": {
+        "_type": "destination_venue",
+        "name": "The Ngee Ann Kongsi Auditorium and Foyer, National Gallery Singapore, City Hall Wing Basement 1",
+        "venue_profile_id": null,
+        "address": {
+            "city": "Singapore",
+            "country": "SG",
+            "region": "",
+            "longitude": "103.85127009999997",
+            "localized_address_display": "1 Saint Andrew's Road, Singapore, 178957",
+            "postal_code": "178957",
+            "address_1": "1 Saint Andrew's Road",
+            "address_2": "",
+            "latitude": "1.2897165",
+            "localized_multi_line_address_display": [
+                "1 Saint Andrew's Road",
+                "Singapore, 178957"
+            ],
+            "localized_area_display": "Singapore"
+        },
+        "venue_profile_url": "",
+        "id": "109281209"
+    },
+    "primary_organizer": {
+        "_type": "destination_profile",
+        "num_upcoming_events": null,
+        "name": "The Edge Singapore",
+        "profile_type": "organizer",
+        "num_followers": 405,
+        "url": "https://www.eventbrite.sg/o/the-edge-singapore-15701828760",
+        "twitter": "the_edge_sg",
+        "summary": null,
+        "num_saves": null,
+        "image_id": "71292105",
+        "followed_by_you": false,
+        "facebook": "theedgesingapore",
+        "num_collections": null,
+        "id": "15701828760",
+        "website_url": null,
+        "num_following": null
+    },
+    "full_description": null,
+    "image_id": "338383989",
+    "is_protected_event": false,
+    "is_cancelled": null,
+    "primary_venue_id": "109281209",
+    "checkout_flow": "widget",
+    "series_id": null,
+    "name": "Industrial REITs in Singapore's New Economy",
+    "language": "en-us",
+    "url": "https://www.eventbrite.sg/e/industrial-reits-in-singapores-new-economy-tickets-400585832007",
+    "hide_start_date": false,
+    "summary": "Industrial REITs in Singapore's New Economy",
+    "is_online_event": false,
+    "eid": "400585832007",
+    "published": "2022-08-12T01:36:15Z"
+}

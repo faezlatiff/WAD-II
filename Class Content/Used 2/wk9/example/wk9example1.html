@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Computed</title>
+    <!-- directly using vue.js -->
+    <!-- for production version, use vue.min.js -->
+    <!-- we shall use development version, includes helpful console warnings -->
+    <!-- <script src="vue.js"></script> --> 
+
+    <!-- using CDN -->
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="app">
+        firstName <input type="text" v-model='fName'>
+        LastName <input type="text" v-model='lName'>
+
+        <p>First Name: "{{ fName }}"</p>
+        <p>Last Name: "{{ lName }}"</p>
+        <p>Full Name: "{{ fullName }}"</p>
+        <p>Full Name: "{{ getFullName() }}"</p>
+
+        <!-- notice the error message in console and fix it -->
+        <button v-on:click="fullName()">Get Full Name</button>
+    </div>
+
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    fName: 'Jack',
+                    lName: 'Jones',
+                  
+                    age: 21
+                }
+            },
+            methods: {
+                // note: can't define 'fullName()' as it will conflict with computed prop
+                getFullName() { 
+                    return this.fName + ' ' + this.lName 
+                }
+            },
+            computed: { // derived property -- derived from existing properties
+                // it will only get re-executed when one of the existing properties changes
+                fullName() {  // getter
+                        // `this` points to this vm instance
+                    return this.fName + ' ' + this.lName   
+                }
+            }
+        }).mount('#app')
+    </script>
+
+</body>
+</html>

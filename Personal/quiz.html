@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    
+<div id="app1">
+    <counter :value="count+1">double open curly braces count double closed curly braces</counter>
+</div>
+<div id="app2">
+    <counter :value="count+2">double open curly braces count double closed curly braces</counter>
+</div>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return { count: 5 };
+        }
+    })
+    app.component('counter', {
+        props: ['value'],
+        data() {
+            return { count: 3 }
+        },
+        template:
+            `<span>
+              <button v-on:click="count++">Click</button>
+              double open curly braces count double closed curly braces:<slot></slot>:double open curly braces value double closed curly braces
+            </span>`
+    });
+    const vm = app.mount("#app1");
+</script> 
+</body>
+</html>

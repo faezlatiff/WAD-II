@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My first Vue app</title>
+    <!-- Option 1: directly using vue.js -->
+    <!-- for production version, use vue.min.js -->
+    <!-- we shall use development version, includes helpful console warnings -->
+    <!-- <script src="vue.js"></script>  -->
+
+    <!-- Option 2: using CDN Library -->
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+  <div id="app">
+    {{ name }}
+
+  </div>
+
+  <div id="app2">
+    {{ message }}
+
+  </div>
+
+
+  <script>
+    
+    let app = Vue.createApp( {    // options object
+        data() {
+          return {
+            name: 'jack',
+            age: 20
+          }
+        },
+
+        methods: {
+          getAge() {
+            // ...
+          },
+
+          getName() {
+            // ...
+          }
+        },
+
+        computed: {
+          fullName() {
+            //...
+          }
+        },
+
+        create() {
+          // ...
+          axios.get(url, {
+            params: {
+
+            }
+          })
+        }
+    } ).mount('#app') // to map the html element with vue instance, using id
+
+    const app2 = Vue.createApp({
+      data() {
+        return {
+          message: 'Hello Vue!'
+        }
+      }
+    })
+
+    const vm = app2.mount('#app2')
+  </script>
+
+</body>
+</html>

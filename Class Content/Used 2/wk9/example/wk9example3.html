@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dynamic Property</title>
+    <!-- directly using vue.js -->
+    <!-- for production version, use vue.min.js -->
+    <!-- we shall use development version, includes helpful console warnings -->
+    <!-- <script src="vue.js"></script> --> 
+
+    <!-- using CDN -->
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id='app'>
+        <!-- bind a vue variable to a Vue property dynamically using radio bottons -->
+        <input type="radio" v-model="pick" v-bind:value="a"> {{ a }}
+       
+        <input type="radio" v-model="pick" v-bind:value="b">B
+        <p> Picked: {{ pick }} </p>
+
+    </div>
+
+    <script>
+        const vm = Vue.createApp({
+            data() {
+                return {
+                    pick: '',
+                    a: 'A',
+                    b: 'B'
+                }
+            }
+        }).mount('#app')
+    </script>
+
+    <div id="app2">
+        <select v-model="selected">
+            <option v-for="option in options" v-bind:value="option.value">
+                {{ option.text }}
+            </option>
+        </select>
+        <span>Selected: {{ selected }}</span>
+    </div>
+
+    <script>
+        const vm2 = Vue.createApp({
+            data() {
+                return {
+                    selected: 'A',
+                    options: [
+                        { text: 'One', value: 'Joe Biden' },
+                        { text: 'Two', value: 'Donald Trump' },
+                        { text: 'Two2', value: 'Donald Trump Junior' },
+                        { text: 'Three', value: 'Who' }
+                    ]
+                } 
+            }
+        }).mount('#app2')
+    </script>
+
+</body>
+
+</html>
