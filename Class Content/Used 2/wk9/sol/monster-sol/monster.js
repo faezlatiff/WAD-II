@@ -38,9 +38,9 @@ const app = Vue.createApp({
                 },
             ],
             range: [10, 20, 30, 40, 50],
-            MONSTER_MAX_ATTACK: 30,
+            MONSTER_MAX_ATTACK: 10,
             PLAYER_MAX_ATTACK: 20,
-            MAX_HEAL: 30,
+            MAX_HEAL: 50,
             specialAttackCoolDown: 0,
         };
     },

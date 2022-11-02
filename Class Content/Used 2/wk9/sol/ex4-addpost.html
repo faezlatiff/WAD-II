@@ -62,7 +62,7 @@
             },
             methods: {
                 add() {
-                    const url = 'http://localhost/is216/REST/blog/addPost.php'
+                    const url = 'http://localhost/is216/Class%20Content/REST/blog/getPosts.php'
                     const data = { subject: this.subject,
                                     entry: this.entry,
                                     mood: this.mood 
@@ -74,6 +74,7 @@
                         console.log(response.data)
                         this.showStatus = true
                         this.status = response.data
+                        console.log(this.status.status);
                     })
                     .catch(error => {
                         this.showStatus = true
