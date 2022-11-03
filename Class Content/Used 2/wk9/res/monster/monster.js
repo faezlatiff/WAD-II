@@ -36,7 +36,7 @@ const app = Vue.createApp({
                 {
                     class: "text-dark",
                     text: "Game hasn't started.",
-                },
+                }
             ],
             range: [10, 20, 30, 40, 50],
             MONSTER_MAX_ATTACK: 30,
@@ -55,32 +55,60 @@ const app = Vue.createApp({
 
         start() {
            // Add Code Here
+           if(this.statusList.length != 1){
+                this.statusList = this.statusList.slice().reverse().pop()
+           }
+           this.gameStarted = true
         },
 
-      
         attack() {
-
             // Add Code Here
-
+            let playerDamage = Math.floor(Math.random()*this.PLAYER_MAX_ATTACK)
+            let monsterDamage = Math.floor(Math.random()*this.MONSTER_MAX_ATTACK)
+            this.monsterHealth -= playerDamage
+            this.myHealth -= monsterDamage
+            if(this.specialAttackCoolDown > 0){
+                this.specialAttackCoolDown -= 1
+            }
+            if(checkHealth == 'bothDead'){
+                this.statusList.append('A glorious battle. Both of you perish.')
+                this.statusList.append('Try again?')
+                this.gameStarted = false
+            }
         },
 
-        specialAttack() {
-           
+        specialAttack() {          
             // Add Code Here
-            
+            this.specialAttackCoolDown = 2
         },
 
         heal() {
-           
             // Add Code Here
+            if(this.specialAttackCoolDown > 0){
+                this.specialAttackCoolDown -= 1
+            }
             
         },
 
         giveUp() {
-            
             // Add Code Here
-            
+            this.gameStarted = false
+            this.specialAttackCoolDown = 0
         },
-    },
+    }, 
+    computed: {
+        checkHealth(){
+            if(this.myHealth <= 0 && this.monsterHealth <= 0){
+                return 'bothDead'
+            }
+            else if(this.myHealth <= 0){
+                return 'imDead'
+            }
+            else if(this.monsterHealth <= 0){
+                return 'monsterDead'
+            }
+            return null
+        }
+    }
 });
 const vm = app.mount("#app");

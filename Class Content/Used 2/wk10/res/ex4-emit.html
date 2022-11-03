@@ -12,8 +12,6 @@
 <body>
    
     <div id="app">
-      
-      
             <div class="mb-3">
                 <label for="desc" class="form-label">Task</label>
                 <input type="text" class="form-control" id="desc" v-model='desc' placeholder="task">
@@ -27,7 +25,18 @@
             <hr>
 
             <!-- TODO: Modify following code -->
-            <task-tracker ></task-tracker>
+            <div class="container-fluid">
+                <div class="row">
+                    <template v-for="(taskItem,idx) in taskList">
+                        <task-tracker 
+                        v-bind:task_input="taskItem.desc" v-bind:task_deadline="taskItem.deadline"
+                        v-bind:task_index="idx"
+                        v-on:del_da_task="deleteDaTask"
+                        class="m-1"></task-tracker>
+                    </template>
+                </div>
+            </div>
+
                  
     </div>
 
@@ -47,17 +56,39 @@
                     this.deadline = ''
                 },
                 // TODO: Add a new method, to delete a task completed
+                deleteDaTask(index){
+                    this.taskList.splice(index,1)
+                }
             }
         })
 
         app.component('task-tracker', {  
             // TODO: implement task-tracker component 
+            props: ['task_input','task_deadline','task_index'],
+            emits: ['del_da_task'],
+            template:`
+                    <div class='card col-3' id={{task_index}}>
+                        <div class='card-body'>
+                            <h5 class='card-title'>{{task_deadline}}</h5>
+                            <p class='card-text'>{{task_input}}</p>
+                        </div>
+                        <button v-on:click="delTask" class="btn btn-primary m-2">
+                            Delete Task?
+                        </button>
+
+                    </div>
+            `,
+
+            methods: {
+                delTask(){
+                    this.$emit('del_da_task',this.task_index)
+                }
+            }
         })
 
         app.mount('#app')
 
     </script>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 
 </body>

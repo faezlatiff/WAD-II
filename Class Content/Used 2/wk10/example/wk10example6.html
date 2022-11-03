@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>slot</title>
+    <title>wk10example6</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -58,10 +58,10 @@
     <div id="app2">
         <book>
             <template v-slot:author>
-                <h3>{{author}}</h3>
+                <h3>ello {{author}}</h3>
             </template>
             <template v-slot:title>
-                <h3>{{title}}</h3>
+                <h3>{{author}}</h3>
             </template>
            
         </book>
@@ -73,7 +73,15 @@
             </div>
         -->
 
-        <comp>content</comp> <!-- .innerHTML = slot -->
+        <comp>
+            <!-- <template v-slot:header1>
+                {{evening}}
+                {{author}}
+            </template> -->
+            <template v-slot:text_level>          
+                {{author}}
+            </template>
+        </comp> <!-- .innerHTML = slot -->
 
     </div>
     <script>
@@ -81,7 +89,8 @@
             data() {
                 return {
                     title: 'VueJS in Action',
-                    author: 'Erik Hanchett'
+                    author: 'Erik Hanchett',
+                    evening: 'eveningevening'
                 }  
             }
         })
@@ -89,7 +98,7 @@
         app2.component('book', {
             template: `<div>
                             <slot name='author'></slot>  
-                            <slot name='title'></slot>         
+                            <h1><slot name='title'></slot></h1>         
                         </div>`
         })
 
@@ -104,7 +113,10 @@
             },
 
             template: `
-                <h1><slot></slot></h1>
+            <div>
+                <h1><slot name='title'></slot></h1>
+                <h6><slot name='text_level'></slot></h6>
+            </div>
             `
 
         })

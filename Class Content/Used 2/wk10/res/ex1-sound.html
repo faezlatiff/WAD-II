@@ -18,25 +18,36 @@
         Sound level
         <input type="number" min="0" max="3" v-model="soundLevel"> 
         <!-- TODO: Add Code Here to make use of the component -->
+        <sound-icon v-bind:sound="soundLevel"></sound-icon>
     </div>
-    
+
     <script>
         const app = Vue.createApp({
-            
-        });
-
-        app.component('sound-icon', {
-            data() {
+            data(){
+                return {
+                    soundLevel:0
+                }
+            }
+        }).component('sound-icon', {
+            data(){
                 return {
                     soundEmojis: ['🔇', '🔈', '🔉', '🔊']
                 } 
             },
-            template: "", // TODO: add your template code here
-        })
-
-        //TODO: Anything else is missing?        
+            props:['sound'],
+            template: '<span>{{soundEmojis[sound]}}</span>'
+        }).mount('#app')
+        
     </script>
+    <div>
+    </div>
     
+
+        
+   
+
+
+
     
 </body>
 </html>

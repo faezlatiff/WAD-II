@@ -262,21 +262,40 @@ function enter(){
 // -->
 
 // create Vue instance and mount
-Vue.createApp({
-  data() {
-      return {
-          name: 'Vue'
-      }
-  },
-  methods: {
-      hello() {
-          alert("Hello " + this.name + "!")
-          // `event` is the native DOM event 
-          // readily available to Vue
-          alert(event.target.tagName + " event!") // -> button event!
-      }
-  }
-}).mount('#app2')
+// Vue.createApp({
+//   data() {
+//       return {
+//           name: 'Vue'
+//       }
+//   },
+//   methods: {
+//       hello() {
+//           alert("Hello " + this.name + "!")
+//           // `event` is the native DOM event 
+//           // readily available to Vue
+//           alert(event.target.tagName + " event!") // -> button event!
+//       }
+//   }
+// }).mount('#app2')
 
-//v-for
-<li v-for="(items,i) in items">{{item}}</li>
+// Vue syntax
+/* <li v-for="(items,i) in items">{{item}}</li> */
+/* <div :style="{ color: activeColor, fontSize: fontSize + 'px' }"></div> */
+
+
+// Vue Components
+// const app = Vue.createApp({
+            
+// });
+
+// app.component('button-counter', {
+//     data() {
+//         return {
+//             count: 0
+//         }
+//     },
+//     template: ` <div><p>If you like my page, click </p>
+//                     <button @click="count++">Like</button>
+//                     <p>People liked me {{ count }} times.</p>
+//                 </div> `
+// }).mount('#counter')

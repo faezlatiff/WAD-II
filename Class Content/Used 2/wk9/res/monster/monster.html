@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<!-- notes -->
+<!-- GIVE UP BUTTON: how to remove button styling? -->
 <head>
     <title>Monster Slayer</title>
     <meta charset="utf-8">
@@ -30,8 +31,8 @@
                 <h2>YOU</h2> 
                 <img src="./img/prince.png" alt="" class="w-50">
                 <div class="progress my-progress">
-                    <div class="progress-bar bg-success">
-                        100%
+                    <div v-bind:class="['progress-bar','bg-success']" v-bind:style="{'width':myHealth + '%'}">
+                        {{myHealth}}%
                     </div>
                 </div>
             </div>
@@ -42,8 +43,8 @@
                 <h2>MONSTER</h2> 
                 <img src="./img/monster.png" alt="" class="w-50">
                 <div class="progress my-progress">
-                    <div class="progress-bar bg-success">
-                       100%
+                    <div v-bind:class="['progress-bar','bg-success']" v-bind:style="{'width':monsterHealth + '%'}">
+                       {{monsterHealth}}%
                     </div>
                 </div>
             </div>
@@ -55,20 +56,24 @@
         <div class="row justify-content-center p-3" v-if="!gameStarted">
             <p class="lead">Select Player/Monster Strength and Start Game</p>
             <select class="col-sm-2">
-                <option>20</option>
+                <option v-for="strength in range">{{strength}}</option>
             </select>
             <div class="col-sm-8">
-                <button id='start' class="btn btn-primary">START NEW GAME</button>
+                <button id='start' class="btn btn-primary" @click="start()">START NEW GAME</button>
             </div>
             <select class="col-sm-2">
-                <option>30</option>
+                <option v-for="strength in range">{{strength}}</option>
             </select>
         </div>
 
         <div class="row justify-content-center p-3 border" v-else>
             <div class="col-sm-12">
                 
-                <!-- You may add [Attak, Special Attack, Heal, Give Up] buttons here -->
+                <!-- You may add [Attack, Special Attack, Heal, Give Up] buttons here -->
+                <button class="btn btn-danger me-2" @click="attack()">ATTACK</button>
+                <button v-if="specialAttackCoolDown == 0" class="btn btn-warning" @click="specialAttack()">SPECIAL ATTACK</button>
+                <button class="btn btn-success ms-2" @click="heal()">HEAL</button>
+                <button class="" @click="giveUp()">GIVE UP</button>
 
             </div>
         </div>
@@ -76,7 +81,13 @@
 
         <div class="row border mt-3 p-3">
             <div class="col-sm-12 text-start">
-                <p>Game hasn't started</p>
+                <p v-if="!gameStarted">Game hasn't started</p>
+                <template v-else>
+                    <p v-for="status in statusList.slice().reverse()">
+                        {{status.text}}
+                    </p>
+                </template>
+                
             </div>
         </div>
 
