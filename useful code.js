@@ -172,7 +172,7 @@ function enter(){
 //      String Operations : length, indexOf(), toUpperCase(), trim(), slice(), 
 //                              substr(), replace(), split(), many more...
 
-//      Array Operations : legnth, push(), pop(), splice(), join(), 
+//      Array Operations : length, push(), pop(), splice(), join(), 
 //                              slice(), sort(), reverse(), many more...
 
 //      Object: Read/Write operations

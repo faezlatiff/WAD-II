@@ -1,7 +1,7 @@
 /*
     
-Name:   
-Email:  
+Name:   KIM Jong Un
+Email:  kim.jongun.2020
 
 */
 
@@ -54,29 +54,55 @@ const app = Vue.createApp( {
 
     //=========== METHODS ===========
     methods: {
-        add_to_directory() {
-            
-            // YOUR CODE GOES HERE
-            var emails = this.new_emails.split(",")
-            var category = 'OTHERS'
 
-            for(email of emails){
-                email = email.trim()
-                if(email.includes('edu')){
-                    category = 'EDUCATION'
+        add_to_directory() {
+            console.log("=== [START] add_to_directory ===")
+
+            // 1. Split email string - store in array
+            let email_array = this.new_emails.split(/(?:,| )+/)
+            console.log( email_array )
+
+            // 2. Update this.directory
+            for( email_item of email_array ) {
+                console.log( email_item )
+
+                if( email_item.includes("@") ) {
+                    // Determine Category
+                    let email_parts = email_item.split("@")
+                    let email_category = "OTHERS"
+                    if( email_parts[1].toUpperCase().includes("EDU") ) {
+                        email_category = "EDUCATION"
+                    }
+
+                    // Insert into this.directory
+                    this.directory.push(
+                        {
+                            email: email_item,
+                            category: email_category
+                        }
+                    )
                 }
-                this.directory.push({
-                    'email': email,
-                    'category': category
-                })
             }
+
+            // 3. Clear textarea
+            this.new_emails = ""
+
+            console.log("=== [END] add_to_directory ===")
         },
+
         // Send part invitation
         send_party_invitation() {
-            // YOUR CODE GOES HERE
-            alert(`Invitations sent to ${this.party_email_addresses} \n
-                Subject: ${this.party_email_subject} \n
-                Message: ${this.party_email_message}`)
+
+            let str = "Invitation sent to " + this.party_email_addresses.join(", ")
+
+            str += `\n\nSubject: ${this.party_email_subject}`
+
+            str += `\n\nMessage: ${this.party_email_message}`
+            
+            // alert( "Sent!" )
+
+            console.log( str )
+            alert( str )
 
         }
 

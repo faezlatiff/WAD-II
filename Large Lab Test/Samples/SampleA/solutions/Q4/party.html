@@ -1,7 +1,7 @@
 <!--
     
-Name:   
-Email:  
+Name:   KIM Jong Un
+Email:  kim.jongun.2020
 
 -->
 <!DOCTYPE html>
@@ -29,7 +29,7 @@ Email:
 
         <!-- Header -->
         <div class="container-fluid py-2 text-center">
-            <h1> {{greeting}}</h1>
+            <h1>{{ greeting }}</h1>
         </div>
 
         
@@ -50,12 +50,11 @@ Email:
                         (separated by comma)
                     </span>
 
-                    <textarea class="form-control" style="height: 140px" v-model="new_emails">
-                    </textarea>
+                    <textarea class="form-control" style="height: 140px" v-model="new_emails"></textarea>
 
                     <hr>
 
-                    <button type="button" class="btn btn-primary" @click="add_to_directory()" >
+                    <button type="button" class="btn btn-primary" v-on:click="add_to_directory()">
                         Add to Directory
                     </button>
 
@@ -79,12 +78,13 @@ Email:
                     
                     <tbody>
 
-                        <tr v-for="person in directory">
+                        <tr v-for="item in directory">
                             <td>
-                                <input class="form-check-input" type="checkbox" v-bind:value="person.email" v-model="party_email_addresses">
+                                <input class="form-check-input" type="checkbox" 
+                                    v-bind:value="item.email" v-model="party_email_addresses">
                             </td>
-                            <td> {{person.email}}</td>
-                            <td> {{person.category}} </td>
+                            <td> {{ item.email }} </td>
+                            <td> {{ item.category }} </td>
                         </tr>
 
                     </tbody>
@@ -117,7 +117,7 @@ Email:
                         <textarea class="form-control" rows="3" v-model="party_email_message"></textarea>
                     </div>
 
-                    <button type="button" @click="send_party_invitation()" class="btn btn-danger">
+                    <button type="button" class="btn btn-danger" v-on:click="send_party_invitation">
                         Send Invitation
                     </button>
 

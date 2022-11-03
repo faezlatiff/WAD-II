@@ -1,0 +1,117 @@
+<!--
+    
+Name:   
+Email:  
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <!--
+          This program calculate how long it takes for you to reach your goal
+          based on a given interest rate (per year)
+     -->
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+     <!-- DO NOT REMOVE
+          REFERENCE TO LOCAL BOOTSTRAP CSS
+     -->
+     <link rel="stylesheet" href="../Bootstrap/bootstrap.min.css">
+ 
+     <title>Q1 - Savings</title>
+     <style>
+          .content{
+               width:70%;
+          }
+          #savings{
+               margin-top: 40px;
+               margin-bottom: 30px;
+          }
+          #how_long{
+               margin-bottom: 48px;
+          }
+          .form_field{
+               margin-bottom: 16px;
+          }
+          #my_goal{
+               margin-bottom: 48px;
+          }
+          #result{
+               margin-top: 30px;
+               margin-bottom: 20px;
+               color:green;
+          }
+          /* #result_table{
+               width: 500px;
+          }
+          #result_table,th,tr,td{
+               border: 1px solid lightgrey;
+               border-collapse: collapse;
+          } */
+     </style>
+</head>
+<body>
+     
+     
+     <!--
+          YOUR CODE GOES HERE
+     -->
+     <div class="content mx-auto">
+          <div class="text-center">
+               <h1 id="savings">Savings</h1>
+               <h3 class="text-primary" id="how_long">How long does it take for me to reach my goal</h3>
+          </div>
+          <div class="input-group form_field ">
+               <div class="input-group-prepend">
+                 <span class="input-group-text" id="">Initial Amount ($)</span>
+               </div>
+               <input type="number" class="form-control" id="myAmt" aria-describedby="basic-addon3">
+          </div>
+          <div class="input-group form_field">
+               <div class="input-group-prepend">
+                 <span class="input-group-text" id="">Yearly Interest (%)</span>
+               </div>
+               <input type="number" class="form-control" id="myInterest" aria-describedby="basic-addon3">
+          </div>
+          <div class="input-group" id="my_goal">
+               <div class="input-group-prepend">
+                 <span class="input-group-text" id="">My Goal ($)</span>
+               </div>
+               <input type="number" class="form-control" id="myGoal" aria-describedby="basic-addon3">
+          </div>
+          <button class="btn btn-danger" onclick="calculate()">Calculate</button>
+
+          <div class="container" id="a_table" style="width:70%">
+     
+          </div>
+     
+
+          
+
+
+
+
+     </div>
+
+
+
+
+
+
+
+     <!-- DO NOT REMOVE
+         REFERENCE TO LOCAL BOOTSTRAP JAVASCRIPT
+     -->
+     <script src="../Bootstrap/bootstrap.bundle.min.js"></script>
+
+     <!-- DO NOT REMOVE
+         REFERENCE TO LOCAL EXTERNAL JAVASCRIPT
+     -->
+     <script src="savings.js"></script>
+     
+</body>
+</html>
+
+

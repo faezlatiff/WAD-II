@@ -20,7 +20,42 @@ function get_max(url1, url2, ele_id) {
 
     // YOUR CODE GOES HERE: START
 
-    
+    ifError = false
+
+    var list1 = []
+    var list2 = []
+
+    list1 = axios.get(url1)
+        .then(response => {
+            var text = document.createTextNode(url1 + ' : ' + JSON.stringify(response.data))
+            document.getElementById(ele_id).appendChild(text)
+            var br = document.createElement('br')
+            document.getElementById(ele_id).appendChild(br)
+        })
+        .catch(error => {
+           document.getElementById(ele_id).innerHTML = `
+                ${url1} <br>
+                ${error.message}
+            `
+            ifError = true
+        });
+
+    list2 = axios.get(url2)
+    .then(response => {
+        if(!ifError){
+            var text = document.createTextNode(url2 + ' : ' + JSON.stringify(response.data))
+            document.getElementById(ele_id).appendChild(text)
+        }
+    })
+    .catch(error => {
+        document.getElementById(ele_id).innerHTML = `
+        ${url2} <br>
+        ${error.message}
+    `
+    });
+
+    console.log(list1,list2);
+
 
     // YOUR CODE GOES HERE: END
 }
