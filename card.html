@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Bootstrap CSS -->
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css' 
+        rel='stylesheet' integrity='sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx' 
+        crossorigin='anonymous'>
+    <style>
+        .for-positioning{
+            position:relative;
+        }
+
+        .remove{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform:translate(-50%,-50%)
+        }
+
+        .list-stuff{
+
+        }
+    </style>
+    
+</head>
+<body>
+    <div class='card mx-auto container' style="width:50%">
+        <div class="row">
+            <div class='col-9'>
+                <h5 class='card-title'>Hang at the actual venue</h5>
+                <div class='card-text list-stuff'>
+                    <div class="mt-2"><i class="bi bi-calendar2-week-fill eventDate" style="margin-right: 10px"></i>{{ displayDate() }}, {{ convertTime() }}</div>
+                    <div class="mt-2"><i class="bi bi-geo-alt-fill eventVenue" style="margin-right: 10px"></i>{{ getVenue() }}</div>
+                    <div class="mt-2"><i class="bi bi-briefcase-fill" style="margin-right: 10px"></i>{{organizerName}}</div>
+                </div>
+            </div>
+            <div class="col-3 for-positioning">
+                <button type="button" style="background-color: rgb(255, 127, 45); color: white"
+                  class="btn orange border border-3 rounded-5 remove" id="loginBtn"
+                  @click="actArr.splice(index, 1), removetime(act.duration), remove(act.location)">
+                  Remove
+                </button>
+            </div>
+        </div>
+    </div> <!-- card -->
+</body>
+</html>

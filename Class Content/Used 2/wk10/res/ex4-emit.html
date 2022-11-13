@@ -64,7 +64,7 @@
 
         app.component('task-tracker', {  
             // TODO: implement task-tracker component 
-            props: ['task_input','task_deadline','task_index'],
+            props: [    'task_input','task_deadline','task_index'],
             emits: ['del_da_task'],
             template:`
                     <div class='card col-3' id={{task_index}}>
@@ -75,7 +75,6 @@
                         <button v-on:click="delTask" class="btn btn-primary m-2">
                             Delete Task?
                         </button>
-
                     </div>
             `,
 

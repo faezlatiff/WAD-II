@@ -193,6 +193,7 @@ VUE
 //        v-bind : bind an attribute value with a vue property. Examples:
 //              <img v-bind:src="myImg">
 //              <div v-bind:class="[prop1, prop2, prop3]">
+//              <div v-bind:class="{prop1:isActive, prop2:isActive2}">
 //              <div v-bind:style="{'property':value}">
 
 //        v-if  : for conditional rendering
@@ -209,6 +210,19 @@ VUE
 //              <option v-for="num in Numbers">{{ num }} </option>
 
 //        v-model : for two-way data binding between form input and Vue instance's property.
+</script>
+
+<!-- Vue Component -->
+<script>
+        app.component('custom_comp', {
+            props : ['prop1', 'prop2'],
+            emits : ['event1', 'event2'],
+            template: `<h1><slot></slot></h1>
+                <p>. {{ prop1 }} </p>
+                <img v-bind:src='prop2' v-on:click="$emit('event1')"/>   
+                    <button @click='doSomething()'>Emit an event</button>                                        
+            `    
+        })       
 </script>
 
 

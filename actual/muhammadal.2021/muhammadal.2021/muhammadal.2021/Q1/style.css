@@ -1,0 +1,23 @@
+/*
+
+Name:   Muhammad Faez Bin Abdul Latiff
+Email:  muhammadal.2021
+
+*/
+
+/* Your answer goes here */
+
+.easy {
+    border: 10px double blue;
+    font-family:  'Courier New', Courier, monospace;
+    color: rgb(255, 165, 0);
+}
+
+span {
+    border: 10px double blue;
+    padding: 20px 30px;
+}
+
+#simple{
+    background-image: url('bg.jpg');
+}

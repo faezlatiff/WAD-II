@@ -1,0 +1,92 @@
+<!--
+    
+Name:   Muhammad Faez Bin Abdul Latiff
+Email:  muhammadal.2021
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- DO NOT REMOVE
+         REFERENCE TO LOCAL BOOTSTRAP CSS
+    -->
+    <link rel="stylesheet" href="../Bootstrap/bootstrap.min.css">
+
+    <title>Q1 - Grocery</title>
+
+    <!-- CSS (Use this section if you need to) -->
+    <style>
+
+        /* YOUR CSS CODE GOES HERE */
+        .main-content{
+            width: 80%;
+            margin-top: 20px;
+            position:relative;
+        }
+        .heading{
+            margin-bottom: 30px;
+        }
+        .itemInput, .itemInput-2{
+            padding: 15px;
+            background-color: rgb(226, 226, 226);
+            border: 1px solid lightgrey;
+        }
+        .itemInput-2{
+            right:0;
+
+        }
+        .add-button{
+            margin-left:15px;
+        }
+
+        .content-2{
+            width:70%;
+            margin-left:auto;
+            margin-right:auto;
+        }
+    </style>
+    
+</head>
+<body>
+
+    
+    <!--
+        YOUR CODE GOES HERE
+    -->
+
+    <div class="content-2">
+        <h1 class="text-center heading" >Shopping List</h1>
+        <span class="d-inline-block itemInput" >
+            <div class="input-group flex-nowrap">
+                <span class="input-group-text" id="addon-wrapping">What to Buy</span>
+                <input type="text" class="form-control" placeholder="Enter item name" aria-label="Username" aria-describedby="addon-wrapping">
+            </div>
+            <button class="btn btn-outline-primary add-button d-inline">Add</button>
+        </span>
+        <span class="ms-4 d-inline-block itemInput-2">
+            <strong>Calculate Total Amount</strong> 
+            <button class="btn btn-outline-primary">Calculate</button>
+        </span>
+    </div>
+
+
+
+
+    
+
+    <!-- DO NOT REMOVE
+         REFERENCE TO LOCAL BOOTSTRAP JAVASCRIPT
+     -->
+     <script src="../Bootstrap/bootstrap.bundle.min.js"></script>
+
+    <!-- DO NOT REMOVE
+         REFERENCE TO LOCAL EXTERNAL JAVASCRIPT
+     -->
+     <script src="grocery.js"></script>
+
+</body>
+</html>
